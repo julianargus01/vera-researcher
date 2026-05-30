@@ -1,0 +1,14 @@
+# Per-case output artifacts — the routing table in identity.md treats
+# these as live state. Clones must ship with empty output/ folders so
+# the first session of every new user starts clean. .gitkeep preserves
+# the folder structure.
+01-scoping/output/*
+02-research/output/*
+03-delivery/output/*
+!*/output/.gitkeep
+
+# Local test fixtures / scratch
+/tmp/
+*.pyc
+__pycache__/
+.DS_Store

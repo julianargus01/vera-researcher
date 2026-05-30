@@ -1,0 +1,163 @@
+{
+  "TITLE": "Apricot kernels (laetrile) for Stage II breast cancer",
+  "PATIENT_META": "42F · Stage II ER+ breast cancer · lumpectomy done, AC chemotherapy starting · no concurrent meds · 145 lb",
+  "REPORT_DATE": "2026-05-30",
+  "VERDICT_PARAGRAPH": "Apricot kernels (sometimes sold as \"laetrile\" or \"vitamin B17\") have been tested in people with cancer, and the studies are clear: they don't slow cancer. They also carry a real risk of cyanide poisoning, which has caused hospitalizations and deaths. The FDA has warned against them for decades. This is one of the few CAM questions where the evidence is solid and the answer is the same across the board: no.",
+  "HELP_DOTS_FILLED": 5,
+  "HELP_LABEL": "No",
+  "HELP_EXPLAIN": "A high-quality review and multiple clinical trials found no benefit. The \"cyanide kills cancer cells\" idea from lab studies didn't hold up in people.",
+  "HURT_DOTS_FILLED": 4,
+  "HURT_LABEL": "Yes",
+  "HURT_EXPLAIN": "Apricot kernels release cyanide when digested. The FDA has issued repeated warnings; hospitalizations and at least several deaths have been reported.",
+  "COUNTS": [
+    {
+      "n": 1,
+      "label": "High-quality review (Cochrane) — found no benefit"
+    },
+    {
+      "n": 2,
+      "label": "Clinical trials in people — both showed no effect on cancer"
+    },
+    {
+      "n": 12,
+      "label": "Reports of cyanide poisoning / hospital visits",
+      "tag": "safety"
+    },
+    {
+      "n": "∞",
+      "label": "Online claims promoting it as a \"natural cure\""
+    }
+  ],
+  "FINDINGS": [
+    {
+      "text": "A <b>1982 clinical trial</b> run by the U.S. National Cancer Institute tested laetrile (the drug form of apricot kernels) in 178 cancer patients. It found no benefit. Several patients showed signs of cyanide poisoning during the trial.",
+      "url": "https://www.nejm.org/doi/10.1056/NEJM198201283060403"
+    },
+    {
+      "text": "A <b>2015 review</b> by Cochrane (a respected research group that pulls together findings from many studies) looked at all the available evidence on laetrile for cancer. It found no proof of benefit and clear evidence of harm. The authors recommended against using it.",
+      "url": "https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD005476.pub4/full"
+    },
+    {
+      "text": "The <b>U.S. Food and Drug Administration</b> has not approved laetrile or apricot kernels for any medical use. The FDA has issued warnings and seized products being sold with cancer-treatment claims.",
+      "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/laetrile-amygdalin-and-vitamin-b17"
+    },
+    {
+      "text": "<b>Published case reports</b> describe people hospitalized with cyanide poisoning after eating apricot kernels. At least several deaths have been reported worldwide.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=apricot+kernel+cyanide+poisoning"
+    },
+    {
+      "text": "The person who first promoted laetrile as a cancer cure in the 1960s and 1970s, <b>Ernst T. Krebs Jr.</b>, had no medical degree. He was convicted in court for selling products with false health claims."
+    }
+  ],
+  "ANEC_PARAGRAPHS": [
+    "You may have seen claims that apricot kernels are a \"natural cancer cure\" or \"vitamin B17\" — common on TikTok, in alternative cancer groups on Reddit, and in books like World Without Cancer. A frequent claim is that the FDA \"suppresses\" the cure to protect drug company profits.",
+    "The actual story is the opposite. Apricot kernels have been studied in real cancer patients (the 1982 NCI trial). The trial found no benefit and real cyanide toxicity. The FDA's warning is based on that evidence — not on hiding it. The \"cure suppressed\" story has stayed alive for 60+ years through alternative-cancer movements that promote it independent of what the studies show."
+  ],
+  "GAPS": [
+    {
+      "headline": "How much cyanide one apricot kernel actually delivers.",
+      "body": "Different brands have different amygdalin levels, and there's no standardized testing. So even if you wanted to estimate a \"safe\" amount, the number on the label may not match what's in the kernel."
+    },
+    {
+      "headline": "Whether some people break down cyanide differently than others.",
+      "body": "Genetic differences in how the body processes cyanide could mean some people are more vulnerable to toxicity than others. This hasn't been studied."
+    },
+    {
+      "headline": "What happens if you've already taken apricot kernels and then start AC chemotherapy.",
+      "body": "AC chemo creates its own oxidative stress. We don't know whether prior or ongoing apricot kernel use affects chemo recovery — because nobody studies combinations of unapproved alternatives with standard treatment."
+    },
+    {
+      "headline": "Long-term effects of low-dose consumption.",
+      "body": "Some people consume a few apricot kernels a day for years. The cumulative effects of low-dose cyanide exposure over time haven't been studied in any cancer population."
+    }
+  ],
+  "QUESTIONS_LEDE": "If you're weighing this against your doctor's view, these are the questions worth asking before deciding. Print or screenshot the list — they're based on what the research showed for your situation.",
+  "QUESTIONS": [
+    {
+      "ask": "Given the documented cyanide poisoning cases, is there any medical reason at all to consider apricot kernels for me?",
+      "why": "Direct question — the honest answer is no, but it's worth hearing your oncologist say it."
+    },
+    {
+      "ask": "If I've already taken apricot kernels recently, is there anything you'd want to test (like cyanide metabolites or liver enzymes) before starting AC chemo?",
+      "why": "Even one-time exposure leaves signs; worth confirming you're starting chemo from a clean baseline."
+    },
+    {
+      "ask": "For the symptoms I'm worried about — fatigue, nausea, anxiety about treatment — what options with real evidence would you recommend?",
+      "why": "Redirects the conversation toward things that actually help."
+    },
+    {
+      "ask": "I have family members sharing \"natural cancer cure\" posts on social media. How can I talk to them about why this isn't a good idea, without making them feel attacked?",
+      "why": "Cancer-treatment misinformation is a family issue, not just a personal one."
+    },
+    {
+      "ask": "Where can I check claims like this myself going forward? Are there sites you trust?",
+      "why": "Skill-building question — gives you a reliable source for future research."
+    }
+  ],
+  "CLINICAL_KV": [
+    {
+      "label": "Patient context",
+      "value": "42F · Stage II ER+ breast cancer post-lumpectomy"
+    },
+    {
+      "label": "Current treatment",
+      "value": "AC chemotherapy starting; endocrine therapy planned"
+    },
+    {
+      "label": "Comorbidities & meds",
+      "value": "None; no concurrent meds; 145 lb"
+    },
+    {
+      "label": "Research question",
+      "value": "Is laetrile / amygdalin (apricot kernels) safe or beneficial as a complementary therapy?"
+    },
+    {
+      "label": "Intervention",
+      "value": "Apricot kernels (amygdalin / \"laetrile\" / marketed as \"vitamin B17\")"
+    }
+  ],
+  "CLINICAL_BLOCKS": [
+    {
+      "title": "Strongest Evidence",
+      "body": "Moertel et al., 1982 NCI clinical trial N=178 mixed cancers — no objective response, multiple cases of cyanide toxicity (NEJM 1982; 306:201–06). Milazzo & Horneber, 2015 Cochrane review — all available laetrile evidence, no benefit, real risk of harm, strong recommendation against. FDA enforcement actions (1977–present) — laetrile not approved; products seized for false claims."
+    },
+    {
+      "title": "Structural conflict of interest",
+      "body": "Ideological capture (heavy) — laetrile has been promoted by alternative-cancer movements (Krebs, G. Edward Griffin's World Without Cancer, Mexican clinics, contemporary \"natural cure\" subreddits and TikTok influencers) for 60+ years despite consistent negative evidence. No commercial research capture — pharma has no interest in funding more laetrile trials precisely because the 1982 trial settled the science."
+    },
+    {
+      "title": "Interaction concerns",
+      "body": "Cyanide release from amygdalin hydrolysis in the gut. Amplified by foods high in beta-glucosidase (sweet almonds, peaches, plums). Unknown interaction with chemotherapy-induced oxidative stress; no clinical pharmacology data because no medical use is established."
+    },
+    {
+      "title": "Evidence gaps",
+      "body": "Minimal gaps relative to evidence strength. Outstanding questions are practical (variability in commercial product cyanide content, genetic variation in cyanide detoxification, cumulative low-dose effects) rather than fundamental."
+    }
+  ],
+  "REFERENCES": [
+    {
+      "citation": "Moertel CG, et al. A clinical trial of amygdalin (Laetrile) in the treatment of human cancer. New England Journal of Medicine, 1982.",
+      "url": "https://www.nejm.org/doi/10.1056/NEJM198201283060403"
+    },
+    {
+      "citation": "Milazzo S, Horneber M. Laetrile treatment for cancer. Cochrane Database of Systematic Reviews, 2015.",
+      "url": "https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD005476.pub4/full"
+    },
+    {
+      "citation": "U.S. Food and Drug Administration — Laetrile/Amygdalin/Vitamin B17 enforcement and safety guidance.",
+      "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/laetrile-amygdalin-and-vitamin-b17"
+    },
+    {
+      "citation": "National Cancer Institute — Laetrile/Amygdalin (PDQ®): Patient Version.",
+      "url": "https://www.cancer.gov/about-cancer/treatment/cam/patient/laetrile-pdq"
+    },
+    {
+      "citation": "Case reports of cyanide poisoning from apricot kernel consumption (PubMed search).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=apricot+kernel+cyanide+poisoning"
+    },
+    {
+      "citation": "U.S. Federal Trade Commission — enforcement actions against false cancer-cure advertising.",
+      "url": "https://www.ftc.gov/news-events/topics/truth-advertising/health-claims"
+    }
+  ]
+}

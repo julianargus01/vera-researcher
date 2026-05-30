@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>VERA — Evidence Evaluation · Fasting + Stage III NHL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Lora:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#faf7f4;
+  --warm-white:#f5f0eb;
+  --coral:#c4614a;
+  --coral-light:#f9ece8;
+  --coral-mid:#e8927a;
+  --teal:#3d7a73;
+  --teal-light:#e8f3f2;
+  --warm-gray:#6b5e54;
+  --warm-gray-light:#9e8f86;
+  --dark:#2d2520;
+  --text:#3c322d;
+  --radius:14px;
+  --shadow-sm:0 1px 3px rgba(45,37,32,.06), 0 1px 2px rgba(45,37,32,.04);
+  --shadow-md:0 4px 14px rgba(45,37,32,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--cream);color:var(--text);font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Lora',Georgia,serif;color:var(--dark);font-weight:600;letter-spacing:-.01em}
+em{font-style:italic;color:var(--warm-gray)}
+strong{color:var(--dark);font-weight:600}
+
+.container{max-width:780px;margin:0 auto;padding:48px 32px 64px}
+
+/* Hero */
+.hero{margin-bottom:28px}
+.brand{font-family:'Lora',serif;font-size:18px;font-weight:600;color:var(--coral);letter-spacing:.02em;margin-bottom:18px}
+.hero h1{font-size:32px;line-height:1.2;margin-bottom:10px}
+.hero .meta{color:var(--warm-gray);font-size:14px}
+.hero .meta strong{color:var(--text)}
+
+/* Verdict band */
+.verdict{background:var(--warm-white);border-left:4px solid var(--coral);border-radius:var(--radius);padding:22px 26px;margin-bottom:30px;box-shadow:var(--shadow-sm)}
+.verdict .label{text-transform:uppercase;letter-spacing:.1em;font-size:11px;color:var(--coral);font-weight:700;margin-bottom:8px}
+.verdict p{font-size:16px;color:var(--text)}
+.verdict .rating{font-family:'Lora',serif;font-size:22px;font-weight:700;color:var(--dark);margin-right:8px}
+
+/* Card */
+.card{background:#fff;border-radius:var(--radius);padding:30px 32px;margin-bottom:22px;box-shadow:var(--shadow-sm);border:1px solid rgba(107,94,84,.08)}
+.card h2{font-size:22px;color:var(--dark);margin-bottom:14px}
+.card p.lede{color:var(--warm-gray);font-size:14px;margin-bottom:20px}
+
+/* Strength rating — two-question version */
+.direction-row{display:grid;grid-template-columns:130px 158px 1fr;gap:18px;align-items:center;padding:14px 0;border-bottom:1px solid var(--coral-light)}
+.direction-row:last-of-type{border-bottom:none}
+.direction-q{font-family:'Lora',serif;font-size:14px;font-weight:700;color:var(--dark);letter-spacing:.03em;text-transform:uppercase}
+.direction-dots{display:flex;gap:7px}
+.direction-dot{width:18px;height:18px;border-radius:50%;background:var(--coral-light);border:1.5px solid var(--coral-light)}
+.direction-dot.filled{background:var(--coral);border-color:var(--coral)}
+.direction-text{display:flex;flex-direction:column;gap:3px}
+.direction-label{font-family:'Lora',serif;font-size:18px;font-weight:600;color:var(--dark);line-height:1.15}
+.direction-explain{font-size:13.5px;color:var(--warm-gray);line-height:1.4}
+.findings-divider{border:none;border-top:1px solid var(--coral-light);margin:18px 0 14px}
+.found-title{font-family:'Lora',serif;font-size:15px;color:var(--dark);font-weight:600;margin-bottom:10px;letter-spacing:0}
+.found-list{display:grid;grid-template-columns:54px 1fr;gap:8px 18px;align-items:center}
+.found-num{font-family:'Lora',serif;font-size:32px;font-weight:600;color:var(--coral);text-align:right;line-height:1;font-variant-numeric:tabular-nums}
+.found-label{font-size:14.5px;color:var(--text);line-height:1.3}
+.found-tag-gap{display:inline-block;background:var(--coral);color:#fff;font-size:10px;font-weight:700;padding:3px 9px;border-radius:10px;letter-spacing:.05em;text-transform:uppercase;margin-left:8px;vertical-align:middle}
+
+/* Findings */
+.finding-item{padding:18px 0;border-bottom:1px solid var(--coral-light)}
+.finding-item:last-child{border-bottom:none}
+.finding-main{display:flex;gap:14px;align-items:flex-start}
+.finding-dot{flex-shrink:0;width:10px;height:10px;border-radius:50%;background:var(--teal);margin-top:7px}
+.finding-text{font-size:15px;color:var(--text);line-height:1.55}
+.finding-text a{color:var(--coral);text-decoration:none;border-bottom:1px solid var(--coral-light);transition:border-color .15s ease;font-weight:600}
+.finding-text a:hover{border-bottom-color:var(--coral)}
+.detail-body{margin-top:10px;margin-left:24px;padding:12px 16px;background:var(--teal-light);border-radius:8px;font-size:13.5px;color:var(--warm-gray);line-height:1.5}
+.tag{display:inline-block;background:var(--coral);color:#fff;font-size:10px;font-weight:600;padding:2px 7px;border-radius:4px;letter-spacing:.04em;text-transform:uppercase;vertical-align:middle;margin:0 4px}
+.tag-tier{background:var(--teal)}
+.tag-coi-no{background:var(--teal-light);color:var(--teal)}
+.tag-coi-yes{background:var(--coral-light);color:var(--coral)}
+
+/* Gaps */
+.gap-item{display:flex;gap:14px;align-items:flex-start;padding:16px 0;border-bottom:1px solid var(--coral-light)}
+.gap-item:last-child{border-bottom:none}
+.gap-icon{flex-shrink:0;width:24px;height:24px;border-radius:50%;border:2px solid var(--coral);color:var(--coral);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;margin-top:2px}
+.gap-text{font-size:14.5px;color:var(--text)}
+
+/* Anecdotal */
+.anec{background:var(--coral-light);border-radius:10px;padding:18px 22px;margin-top:18px}
+.anec h4{font-family:'Lora',serif;font-size:15px;color:var(--coral);font-weight:600;margin-bottom:8px}
+.anec p{font-size:14px;color:var(--text)}
+
+/* Clinical (oncologist) */
+.clinical-block{margin-top:20px;padding:18px 22px;background:#fbf9f7;border-left:3px solid var(--teal);border-radius:8px}
+.clinical-block h3{font-size:15px;color:var(--teal);margin-bottom:8px;font-family:'DM Sans',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.clinical-block p,.clinical-block li{font-size:13.5px;color:var(--text);line-height:1.5}
+.clinical-block ul{margin-left:18px;margin-top:6px}
+.clinical-block li{margin-bottom:5px}
+
+.kv{display:grid;grid-template-columns:170px 1fr;gap:8px 18px;font-size:13.5px;margin-bottom:14px}
+.kv dt{color:var(--warm-gray);font-weight:600}
+.kv dd{color:var(--text)}
+
+/* Questions */
+.questions-list{counter-reset:q;list-style:none;padding:0}
+.questions-list li{counter-increment:q;position:relative;padding:14px 0 14px 44px;border-bottom:1px solid var(--coral-light);font-size:15px;color:var(--text)}
+.questions-list li:last-child{border-bottom:none}
+.questions-list li::before{content:counter(q);position:absolute;left:0;top:14px;width:28px;height:28px;border-radius:50%;background:var(--coral);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;font-family:'DM Sans',sans-serif}
+.question-why{display:block;margin-top:6px;font-size:13px;color:var(--warm-gray);font-style:italic}
+
+/* References */
+.refs{font-size:13px;color:var(--warm-gray);counter-reset:ref}
+.refs li{counter-increment:ref;padding:8px 0 8px 28px;position:relative;border-bottom:1px dotted var(--coral-light);list-style:none}
+.refs li::before{content:counter(ref);position:absolute;left:0;top:8px;font-family:'Lora',serif;font-weight:700;color:var(--coral)}
+.refs li:last-child{border-bottom:none}
+.refs li a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent;transition:all .15s ease}
+.refs li a:hover{color:var(--coral);border-bottom-color:var(--coral-light)}
+
+/* Footer */
+.footer{margin-top:36px;text-align:center;font-size:12px;color:var(--warm-gray-light)}
+.footer .brand-small{color:var(--coral);font-family:'Lora',serif;font-weight:600;letter-spacing:.04em}
+
+/* Print/PDF */
+@media print{
+  html,body{background:#fff !important}
+  .footer{display:none}
+  .container{max-width:none;padding:18px 32px;background:#fff}
+  .card{break-inside:avoid;box-shadow:none;border:1px solid #eee;padding:24px 28px}
+  .clinical-block{break-inside:avoid}
+  .page-1-last,.page-2-last,.page-3-last,.page-4-last{page-break-after:always}
+
+  /* page-1: hero + verdict + dashboard */
+  .hero{margin-bottom:16px}
+  .hero h1{font-size:27px}
+  .verdict{padding:17px 22px;margin-bottom:16px}
+  .verdict p{font-size:15px;line-height:1.5}
+  .direction-row{padding:11px 0}
+  .findings-divider{margin:13px 0 11px}
+  .found-num{font-size:27px}
+  .found-label{font-size:14px}
+  .found-list{gap:5px 16px}
+
+  /* page-2: findings — moderate density */
+  .finding-item{padding:20px 0}
+  .finding-text{font-size:15.5px;line-height:1.6}
+  .anec{padding:20px 24px;margin-top:22px}
+  .anec h4{font-size:15px}
+
+  /* page-3: gaps — biggest enlargement (content is sparsest) */
+  .gap-item{padding:26px 0}
+  .gap-text{font-size:16px;line-height:1.55}
+  .gap-icon{width:28px;height:28px;font-size:13px}
+
+  /* page-4: questions — moderate enlargement */
+  .questions-list li{padding:20px 0 20px 50px;font-size:15.5px}
+  .question-why{font-size:13.5px;margin-top:8px}
+  .questions-list li::before{width:32px;height:32px;font-size:14px;top:20px}
+
+  /* page-5: Clinical Summary — tighten so all blocks fit on one page */
+  .kv{grid-template-columns:160px 1fr;gap:6px 16px;font-size:13px;margin-bottom:10px}
+  .clinical-block{margin-top:12px;padding:13px 18px}
+  .clinical-block h3{font-size:13.5px;margin-bottom:6px;letter-spacing:.05em}
+  .clinical-block p,.clinical-block li{font-size:12.5px;line-height:1.45}
+  .clinical-block ul{margin-top:4px}
+  .clinical-block li{margin-bottom:3px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="hero">
+    <div class="brand">VERA · VERIFIED EVIDENCE RESEARCH ANALYST</div>
+    <h1>Fasting during R-CHOP for Stage III non-Hodgkin lymphoma</h1>
+    <div class="meta"><strong>Patient:</strong> 49M · Stage III NHL · about to start R-CHOP (CAR-T possible later) · fish oil + turmeric + Zyrtec · 190 lb, appetite stable &nbsp;·&nbsp; <strong>Date:</strong> 2026-05-29</div>
+  </header>
+
+  <!-- Verdict -->
+  <div class="verdict">
+    <div class="label">The honest answer</div>
+    <p>No one has tested fasting in people with your kind of cancer yet. The few small studies that exist are in other cancers (mostly breast), and they had mixed results — so we can't just take those findings and apply them to lymphoma. That means there's no direct evidence telling us whether fasting will help or hurt in your case. What we do know: R-CHOP makes it harder to keep weight up and eat enough protein, which your body needs to handle treatment. So the safety side matters more than the buzz online.</p>
+  </div>
+
+  <!-- 1. Strength rating (Option A) -->
+  <div class="card page-1-last">
+    <h2>What does the evidence actually say?</h2>
+
+    <div class="direction-row">
+      <div class="direction-q">Will it help?</div>
+      <div class="direction-dots">
+        <div class="direction-dot"></div>
+        <div class="direction-dot"></div>
+        <div class="direction-dot"></div>
+        <div class="direction-dot"></div>
+        <div class="direction-dot"></div>
+      </div>
+      <div class="direction-text">
+        <div class="direction-label">We can't tell yet</div>
+        <div class="direction-explain">No studies have tested fasting in people with lymphoma. The few trials in other cancers had mixed results.</div>
+      </div>
+    </div>
+
+    <div class="direction-row">
+      <div class="direction-q">Could it hurt?</div>
+      <div class="direction-dots">
+        <div class="direction-dot filled"></div>
+        <div class="direction-dot filled"></div>
+        <div class="direction-dot"></div>
+        <div class="direction-dot"></div>
+        <div class="direction-dot"></div>
+      </div>
+      <div class="direction-text">
+        <div class="direction-label">Maybe — some concern</div>
+        <div class="direction-explain">Doctors recommend eating enough during chemo. Fasting could be risky if you lose weight or run low on protein.</div>
+      </div>
+    </div>
+
+    <hr class="findings-divider">
+
+    <h3 class="found-title">What we found</h3>
+    <div class="found-list">
+      <div class="found-num">2</div>
+      <div class="found-label">High-quality reviews (not in lymphoma)</div>
+      <div class="found-num">1</div>
+      <div class="found-label">Clinical trial (in breast cancer)</div>
+      <div class="found-num">0</div>
+      <div class="found-label">Trials in lymphoma <span class="found-tag-gap">biggest gap</span></div>
+      <div class="found-num">4</div>
+      <div class="found-label">Smaller studies and case reports</div>
+      <div class="found-num">6</div>
+      <div class="found-label">Online claims we checked</div>
+    </div>
+  </div>
+
+  <!-- 2. What the research says -->
+  <div class="card page-2-last">
+    <h2>What the research says</h2>
+
+    <div class="finding-item">
+      <div class="finding-main">
+        <div class="finding-dot"></div>
+        <p class="finding-text">A <a href="https://pubmed.ncbi.nlm.nih.gov/29699509/" target="_blank" rel="noopener">2018 review</a> looked at fasting studies across different cancers. It didn't find clear proof that fasting helps people live longer. A few studies showed fewer chemo side effects, but those studies weren't very strong.</p>
+      </div>
+    </div>
+
+    <div class="finding-item">
+      <div class="finding-main">
+        <div class="finding-dot"></div>
+        <p class="finding-text">A <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Anic+therapeutic+fasting+chemotherapy" target="_blank" rel="noopener">2022 review</a> combined results from several small fasting trials. It found small improvements in nausea and tiredness — but only in breast and ovarian cancer studies. <em>None of the studies included lymphoma.</em></p>
+      </div>
+    </div>
+
+    <div class="finding-item">
+      <div class="finding-main">
+        <div class="finding-dot"></div>
+        <p class="finding-text">A <a href="https://www.nature.com/articles/s41467-020-16138-3" target="_blank" rel="noopener">2020 breast cancer trial</a> tried a "fasting-mimicking diet" (eating very little for a few days around chemo) in 131 patients. The diet group had better chemo results and less damage to their white blood cells. But this was breast cancer, not lymphoma, and the diet was supervised by their care team.</p>
+      </div>
+    </div>
+
+    <div class="finding-item">
+      <div class="finding-main">
+        <div class="finding-dot"></div>
+        <p class="finding-text">One <a href="https://clinicaltrials.gov/search?cond=lymphoma&amp;intr=fasting" target="_blank" rel="noopener">lymphoma study</a> is registered on ClinicalTrials.gov (the U.S. database that tracks medical trials), but results haven't been shared yet.</p>
+      </div>
+    </div>
+
+    <div class="finding-item">
+      <div class="finding-main">
+        <div class="finding-dot"></div>
+        <p class="finding-text">The <a href="https://www.cancer.gov/about-cancer/treatment/side-effects/appetite-loss/nutrition-pdq" target="_blank" rel="noopener">National Cancer Institute</a> (a U.S. health agency) advises against fasting on your own during chemo. They say your body needs enough calories and protein to recover from each round of treatment.</p>
+      </div>
+    </div>
+
+    <div class="anec">
+      <h4>What you may have heard online</h4>
+      <p>You may have heard fasting "starves cancer cells" on Joe Rogan, Peter Attia, or Huberman podcasts, or in Reddit groups like r/fasting and r/CancerCured. The idea comes from lab studies in mice, which gives it some real scientific basis. But it hasn't been shown to help people with cancer live longer or shrink their tumors. Most of the bold claims trace back to those mouse studies or to one small breast cancer trial — none of them tested lymphoma.</p>
+      <p style="margin-top:10px">One thing worth knowing: nobody can patent fasting like a drug. That means drug companies have no reason to pay for the big trials that could finally settle the question. That's part of why the research on fasting and cancer stays small.</p>
+    </div>
+  </div>
+
+  <!-- 3. What we don't know -->
+  <div class="card page-3-last">
+    <h2>What we don't know yet</h2>
+    <div class="gap-item">
+      <div class="gap-icon">◯</div>
+      <p class="gap-text"><strong>No clinical trial in lymphoma.</strong> Every completed study is in a different cancer (mostly breast). One lymphoma study is in progress, but it hasn't shared results yet.</p>
+    </div>
+    <div class="gap-item">
+      <div class="gap-icon">◯</div>
+      <p class="gap-text"><strong>No study of fasting with R-CHOP.</strong> R-CHOP includes a steroid called prednisone that affects your blood sugar and appetite. Nobody has tested how fasting and that steroid work together.</p>
+    </div>
+    <div class="gap-item">
+      <div class="gap-icon">◯</div>
+      <p class="gap-text"><strong>No study of fasting with CAR-T therapy.</strong> CAR-T treatment puts different needs on your body than regular chemo, so the answer here may not be the same.</p>
+    </div>
+    <div class="gap-item">
+      <div class="gap-icon">◯</div>
+      <p class="gap-text"><strong>No agreed-on way to fast.</strong> Different studies tried different things — some had people drink only water, others used special diets that mimic fasting, others limited eating to certain hours of the day. With so many different setups, the studies can't really be compared.</p>
+    </div>
+  </div>
+
+  <!-- 4. Questions (moved above Clinical Summary — patient flow ends with actionable next step) -->
+  <div class="card page-4-last">
+    <h2>Questions to bring to your doctor</h2>
+    <p class="lede">If you're still thinking about trying fasting during treatment, these are the questions worth bringing to your doctor first. Print or screenshot the list — they're based on what the research showed (and didn't show) for your situation.</p>
+    <ol class="questions-list">
+      <li>Is there anything about R-CHOP — especially the prednisone — that would make fasting riskier for me specifically?
+        <span class="question-why">Steroids affect blood sugar and appetite; the interaction with fasting hasn't been studied.</span>
+      </li>
+      <li>If CAR-T comes after R-CHOP, would fasting before or during that be reasonable?
+        <span class="question-why">CAR-T has different supportive-care needs; the answer may not be the same regimen-to-regimen.</span>
+      </li>
+      <li>Could a supervised short fast around infusion days be a middle ground vs. prolonged fasting?
+        <span class="question-why">The DIRECT trial used a 3-day fasting-mimicking diet around infusions; ask if anything similar is appropriate.</span>
+      </li>
+      <li>Do my fish oil or turmeric change this calculation?
+        <span class="question-why">Both have been raised as potential R-CHOP interaction questions; worth bringing up alongside fasting.</span>
+      </li>
+      <li>If I lose weight or appetite during chemo, when does that become a reason to stop fasting attempts entirely?
+        <span class="question-why">Get an explicit threshold from your team rather than guessing.</span>
+      </li>
+    </ol>
+  </div>
+
+  <!-- 5. Clinical Summary (oncologist-facing — comes AFTER the patient-facing flow ends) -->
+  <div class="card">
+    <h2>Clinical Summary — Fasting + Stage III NHL</h2>
+
+    <dl class="kv">
+      <dt>Patient context</dt><dd>49M · Stage III NHL · first-line therapy</dd>
+      <dt>Current treatment</dt><dd>R-CHOP starting; CAR-T possible later</dd>
+      <dt>Comorbidities &amp; meds</dt><dd>None; fish oil, turmeric, Zyrtec; environmental allergies; 190 lb, appetite normal</dd>
+      <dt>Research question</dt><dd>Is short-term fasting safe to begin during R-CHOP for Stage III NHL, and is there evidence it improves outcomes?</dd>
+      <dt>Intervention</dt><dd>Short-term therapeutic fasting / fasting-mimicking diet during chemotherapy</dd>
+    </dl>
+
+    <div class="clinical-block">
+      <h3>Strongest Evidence</h3>
+      <ul>
+        <li>de Groot et al., 2020 — DIRECT phase II RCT N=131 breast cancer — fasting-mimicking diet improved chemo response, reduced DNA damage in PBMCs — independent funding</li>
+        <li>Bauersfeld et al., 2018 systematic review — fasting and cancer chemotherapy outcomes — no clear survival benefit pooled, low GRADE certainty — independent funding</li>
+        <li>Anic et al., 2022 systematic review + meta-analysis — therapeutic fasting and chemo side effects — modest nausea/fatigue reduction; no lymphoma data — independent funding</li>
+      </ul>
+    </div>
+
+    <div class="clinical-block">
+      <h3>Structural COI</h3>
+      <p><strong>Research-agenda capture</strong> — fasting is non-patentable; large RCTs are not funded by industry; this is a meaningful reason the lymphoma evidence is sparse. <strong>Ideological capture</strong> — wellness movements (longevity, biohacking) over-promote fasting for cancer. <strong>Publication bias</strong> — moderate; the registered lymphoma feasibility trial has no posted results.</p>
+    </div>
+
+    <div class="clinical-block">
+      <h3>Interaction Concerns</h3>
+      <p>Prednisone in R-CHOP affects glucose and appetite — fasting may compound. CAR-T (if later) has different supportive-care needs.</p>
+    </div>
+
+    <div class="clinical-block">
+      <h3>Evidence Gaps</h3>
+      <p>No RCT in lymphoma. No fasting + R-CHOP data. No fasting + CAR-T data. No safety data on prolonged (&gt;72h) fasting during anthracycline-based chemo. No standardized fasting protocol for lymphoma populations.</p>
+    </div>
+  </div>
+
+  <!-- 6. References -->
+  <div class="card">
+    <h2>Reference list</h2>
+    <ol class="refs">
+      <li><a href="https://pubmed.ncbi.nlm.nih.gov/29699509/" target="_blank" rel="noopener">Bauersfeld SP, et al. The effects of short-term fasting on quality of life and tolerance to chemotherapy in patients with breast and ovarian cancer. <em>BMC Cancer</em>, 2018.</a></li>
+      <li><a href="https://www.nature.com/articles/s41467-020-16138-3" target="_blank" rel="noopener">de Groot S, et al. Fasting mimicking diet as an adjunct to neoadjuvant chemotherapy for breast cancer in the multicentre randomized phase 2 DIRECT trial. <em>Nature Communications</em>, 2020.</a></li>
+      <li><a href="https://pubmed.ncbi.nlm.nih.gov/?term=Anic+therapeutic+fasting+chemotherapy" target="_blank" rel="noopener">Anic K, et al. Therapeutic Fasting in Reducing Chemotherapy Side Effects in Cancer Patients: A Systematic Review and Meta-Analysis. <em>Nutrients</em>, 2022.</a></li>
+      <li><a href="https://pubmed.ncbi.nlm.nih.gov/?term=fasting+cancer+treatment+systematic+review+supportive" target="_blank" rel="noopener">Fasting during cancer treatment: a systematic review. <em>Supportive Care in Cancer</em>, 2021.</a></li>
+      <li><a href="https://clinicaltrials.gov/search?cond=lymphoma&amp;intr=fasting" target="_blank" rel="noopener">ClinicalTrials.gov — feasibility trial of fasting in lymphoma (results not yet posted).</a></li>
+      <li><a href="https://www.cancer.gov/about-cancer/treatment/side-effects/appetite-loss/nutrition-pdq" target="_blank" rel="noopener">National Cancer Institute — Nutrition in Cancer Care (PDQ®): Patient Version.</a></li>
+      <li><a href="https://pubmed.ncbi.nlm.nih.gov/?term=follicular+lymphoma+fasting+case+report" target="_blank" rel="noopener">Follicular lymphoma fasting case report &amp; case series (Integrative Cancer Therapies, 2018–2020).</a></li>
+    </ol>
+  </div>
+
+  <div class="footer">
+    <div class="brand-small">VERA · VERIFIED EVIDENCE RESEARCH ANALYST</div>
+    <div>This is a research tool, not medical advice. Bring this report to your oncologist.</div>
+  </div>
+
+</div>
+</body>
+</html>

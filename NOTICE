@@ -1,0 +1,42 @@
+VERA — Verified Evidence Research Analyst
+Copyright (c) 2026 Greg Faysash
+
+VERA is licensed under CC BY-NC 4.0 (see LICENSE).
+
+────────────────────────────────────────────────────────────────────────
+Third-party attribution
+────────────────────────────────────────────────────────────────────────
+
+VERA's build process used the **pre-flight coach** crosscheck framework
+during development:
+
+    pre-flight coach
+    Copyright (c) 2026 Basiliso Rosario (BuiltByBas)
+    https://github.com/BuiltByBas/pre-flight-coach
+    Licensed under CC BY-NC 4.0
+
+The pre-flight coach tool is not bundled in this repository. It was used
+as a development-time methodology aid; no pre-flight code or content
+ships with VERA. Attribution is provided here in recognition of the
+methodology's influence on VERA's build process.
+
+────────────────────────────────────────────────────────────────────────
+Fonts
+────────────────────────────────────────────────────────────────────────
+
+VERA's PDF renderer embeds two open-source typefaces (in
+`03-delivery/reference/fonts/`):
+
+  • Lora — © Cyreal, SIL Open Font License 1.1
+  • DM Sans — © Indian Type Foundry, SIL Open Font License 1.1
+
+Both are redistributable under the OFL. License texts are available at
+https://scripts.sil.org/OFL.
+
+────────────────────────────────────────────────────────────────────────
+Python dependencies (not bundled)
+────────────────────────────────────────────────────────────────────────
+
+VERA's renderer depends on:
+
+  • reportlab — BSD-style license

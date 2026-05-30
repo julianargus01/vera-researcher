@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>VERA — Evidence Evaluation · IV Vitamin C + Stage IV pancreatic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Lora:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#faf7f4;--warm-white:#f5f0eb;--coral:#c4614a;--coral-light:#f9ece8;--teal:#3d7a73;--teal-light:#e8f3f2;--warm-gray:#6b5e54;--warm-gray-light:#9e8f86;--dark:#2d2520;--text:#3c322d;--radius:14px;--shadow-sm:0 1px 3px rgba(45,37,32,.06)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--cream);color:var(--text);font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Lora',Georgia,serif;color:var(--dark);font-weight:600;letter-spacing:-.01em}
+em{font-style:italic;color:var(--warm-gray)}strong{color:var(--dark);font-weight:600}
+.container{max-width:780px;margin:0 auto;padding:48px 32px 64px}
+.hero{margin-bottom:28px}.brand{font-family:'Lora',serif;font-size:18px;font-weight:600;color:var(--coral);letter-spacing:.02em;margin-bottom:18px}
+.hero h1{font-size:32px;line-height:1.2;margin-bottom:10px}.hero .meta{color:var(--warm-gray);font-size:14px}.hero .meta strong{color:var(--text)}
+.verdict{background:var(--warm-white);border-left:4px solid var(--coral);border-radius:var(--radius);padding:22px 26px;margin-bottom:30px;box-shadow:var(--shadow-sm)}
+.verdict .label{text-transform:uppercase;letter-spacing:.1em;font-size:11px;color:var(--coral);font-weight:700;margin-bottom:8px}
+.verdict p{font-size:16px;color:var(--text)}
+.card{background:#fff;border-radius:var(--radius);padding:30px 32px;margin-bottom:22px;box-shadow:var(--shadow-sm);border:1px solid rgba(107,94,84,.08)}
+.card h2{font-size:22px;color:var(--dark);margin-bottom:14px}.card p.lede{color:var(--warm-gray);font-size:14px;margin-bottom:20px}
+.direction-row{display:grid;grid-template-columns:130px 158px 1fr;gap:18px;align-items:center;padding:14px 0;border-bottom:1px solid var(--coral-light)}
+.direction-row:last-of-type{border-bottom:none}
+.direction-q{font-family:'Lora',serif;font-size:14px;font-weight:700;color:var(--dark);letter-spacing:.03em;text-transform:uppercase}
+.direction-dots{display:flex;gap:7px}.direction-dot{width:18px;height:18px;border-radius:50%;background:var(--coral-light);border:1.5px solid var(--coral-light)}
+.direction-dot.filled{background:var(--coral);border-color:var(--coral)}
+.direction-text{display:flex;flex-direction:column;gap:3px}.direction-label{font-family:'Lora',serif;font-size:18px;font-weight:600;color:var(--dark);line-height:1.15}
+.direction-explain{font-size:13.5px;color:var(--warm-gray);line-height:1.4}
+.findings-divider{border:none;border-top:1px solid var(--coral-light);margin:18px 0 14px}
+.found-title{font-family:'Lora',serif;font-size:15px;color:var(--dark);font-weight:600;margin-bottom:10px;letter-spacing:0}
+.found-list{display:grid;grid-template-columns:54px 1fr;gap:8px 18px;align-items:center}
+.found-num{font-family:'Lora',serif;font-size:32px;font-weight:600;color:var(--coral);text-align:right;line-height:1;font-variant-numeric:tabular-nums}
+.found-label{font-size:14.5px;color:var(--text);line-height:1.3}
+.found-tag-gap{display:inline-block;background:var(--coral);color:#fff;font-size:10px;font-weight:700;padding:3px 9px;border-radius:10px;letter-spacing:.05em;text-transform:uppercase;margin-left:8px;vertical-align:middle}
+.finding-item{padding:18px 0;border-bottom:1px solid var(--coral-light)}.finding-item:last-child{border-bottom:none}
+.finding-main{display:flex;gap:14px;align-items:flex-start}.finding-dot{flex-shrink:0;width:10px;height:10px;border-radius:50%;background:var(--teal);margin-top:7px}
+.finding-text{font-size:15px;color:var(--text);line-height:1.55}
+.finding-text a{color:var(--coral);text-decoration:none;border-bottom:1px solid var(--coral-light);transition:border-color .15s ease;font-weight:600}
+.finding-text a:hover{border-bottom-color:var(--coral)}
+.anec{background:var(--coral-light);border-radius:10px;padding:18px 22px;margin-top:18px}
+.anec h4{font-family:'Lora',serif;font-size:15px;color:var(--coral);font-weight:600;margin-bottom:8px}.anec p{font-size:14px;color:var(--text)}
+.gap-item{display:flex;gap:14px;align-items:flex-start;padding:16px 0;border-bottom:1px solid var(--coral-light)}.gap-item:last-child{border-bottom:none}
+.gap-icon{flex-shrink:0;width:24px;height:24px;border-radius:50%;border:2px solid var(--coral);color:var(--coral);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;margin-top:2px}
+.gap-text{font-size:14.5px;color:var(--text)}
+.clinical-block{margin-top:20px;padding:18px 22px;background:#fbf9f7;border-left:3px solid var(--teal);border-radius:8px}
+.clinical-block h3{font-size:15px;color:var(--teal);margin-bottom:8px;font-family:'DM Sans',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.clinical-block p,.clinical-block li{font-size:13.5px;color:var(--text);line-height:1.5}
+.clinical-block ul{margin-left:18px;margin-top:6px}.clinical-block li{margin-bottom:5px}
+.kv{display:grid;grid-template-columns:170px 1fr;gap:8px 18px;font-size:13.5px;margin-bottom:14px}.kv dt{color:var(--warm-gray);font-weight:600}.kv dd{color:var(--text)}
+.questions-list{counter-reset:q;list-style:none;padding:0}
+.questions-list li{counter-increment:q;position:relative;padding:14px 0 14px 44px;border-bottom:1px solid var(--coral-light);font-size:15px;color:var(--text)}
+.questions-list li:last-child{border-bottom:none}
+.questions-list li::before{content:counter(q);position:absolute;left:0;top:14px;width:28px;height:28px;border-radius:50%;background:var(--coral);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;font-family:'DM Sans',sans-serif}
+.question-why{display:block;margin-top:6px;font-size:13px;color:var(--warm-gray);font-style:italic}
+.refs{font-size:13px;color:var(--warm-gray);counter-reset:ref}
+.refs li{counter-increment:ref;padding:8px 0 8px 28px;position:relative;border-bottom:1px dotted var(--coral-light);list-style:none}
+.refs li::before{content:counter(ref);position:absolute;left:0;top:8px;font-family:'Lora',serif;font-weight:700;color:var(--coral)}
+.refs li:last-child{border-bottom:none}
+.refs li a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent;transition:all .15s ease}
+.refs li a:hover{color:var(--coral);border-bottom-color:var(--coral-light)}
+@media print{html,body{background:#fff!important}.footer{display:none}.container{max-width:none;padding:18px 32px;background:#fff}.card{break-inside:avoid;box-shadow:none;border:1px solid #eee;padding:24px 28px}.clinical-block{break-inside:avoid}.page-1-last,.page-2-last,.page-3-last,.page-4-last{page-break-after:always}.hero{margin-bottom:16px}.hero h1{font-size:27px}.verdict{padding:17px 22px;margin-bottom:16px}.verdict p{font-size:15px;line-height:1.5}.direction-row{padding:11px 0}.findings-divider{margin:13px 0 11px}.found-num{font-size:27px}.found-label{font-size:14px}.found-list{gap:5px 16px}.finding-item{padding:20px 0}.finding-text{font-size:15.5px;line-height:1.6}.anec{padding:20px 24px;margin-top:22px}.anec h4{font-size:15px}.gap-item{padding:26px 0}.gap-text{font-size:16px;line-height:1.55}.gap-icon{width:28px;height:28px;font-size:13px}.questions-list li{padding:20px 0 20px 50px;font-size:15.5px}.question-why{font-size:13.5px;margin-top:8px}.questions-list li::before{width:32px;height:32px;font-size:14px;top:20px}.kv{grid-template-columns:160px 1fr;gap:6px 16px;font-size:13px;margin-bottom:10px}.clinical-block{margin-top:12px;padding:13px 18px}.clinical-block h3{font-size:13.5px;margin-bottom:6px;letter-spacing:.05em}.clinical-block p,.clinical-block li{font-size:12.5px;line-height:1.45}.clinical-block ul{margin-top:4px}.clinical-block li{margin-bottom:3px}}
+</style>
+</head>
+<body>
+<div class="container">
+<header class="hero">
+<div class="brand">VERA · VERIFIED EVIDENCE RESEARCH ANALYST</div>
+<h1>High-dose IV vitamin C during FOLFIRINOX for Stage IV pancreatic cancer</h1>
+<div class="meta"><strong>Patient:</strong> 58M · Stage IV pancreatic cancer · FOLFIRINOX cycle 3 of planned 12 · no other meds · 165 lb (down from 180 pre-diagnosis) · appetite reduced &nbsp;·&nbsp; <strong>Date:</strong> 2026-05-29</div>
+</header>
+
+<div class="verdict">
+<div class="label">The honest answer</div>
+<p>This is a case where the evidence is small and mixed. A couple of small clinical trials in pancreatic cancer suggest that high-dose IV vitamin C can be added to chemotherapy without making things worse — but they don't show it helps you live longer or shrinks tumors. There is one specific safety issue (a condition called G6PD deficiency) that can cause a serious reaction. There's also a lot of online hype that runs ahead of what the actual evidence says. So this isn't a clear yes or no — it's a real "maybe, with eyes open" if you and your team decide to look closer.</p>
+</div>
+
+<div class="card page-1-last">
+<h2>What does the evidence actually say?</h2>
+<div class="direction-row">
+<div class="direction-q">Will it help?</div>
+<div class="direction-dots"><div class="direction-dot filled"></div><div class="direction-dot filled"></div><div class="direction-dot"></div><div class="direction-dot"></div><div class="direction-dot"></div></div>
+<div class="direction-text"><div class="direction-label">Maybe</div><div class="direction-explain">Two small trials in pancreatic cancer show it's tolerable — but neither was set up to prove it helps you live longer.</div></div>
+</div>
+<div class="direction-row">
+<div class="direction-q">Could it hurt?</div>
+<div class="direction-dots"><div class="direction-dot filled"></div><div class="direction-dot filled"></div><div class="direction-dot filled"></div><div class="direction-dot"></div><div class="direction-dot"></div></div>
+<div class="direction-text"><div class="direction-label">Yes — one real risk</div><div class="direction-explain">People with an undiagnosed condition called G6PD deficiency can have a serious reaction. A simple blood test before starting is the standard safety check.</div></div>
+</div>
+<hr class="findings-divider">
+<h3 class="found-title">What we found</h3>
+<div class="found-list">
+<div class="found-num">1</div><div class="found-label">High-quality review across 19 studies</div>
+<div class="found-num">2</div><div class="found-label">Small clinical trials in pancreatic cancer</div>
+<div class="found-num">0</div><div class="found-label">Trials with your exact chemo (FOLFIRINOX) <span class="found-tag-gap">biggest gap</span></div>
+<div class="found-num">1</div><div class="found-label">Documented safety case (G6PD-related)</div>
+<div class="found-num">8</div><div class="found-label">Online claims we checked (podcasts, Reddit, clinic sites)</div>
+</div>
+</div>
+
+<div class="card page-2-last">
+<h2>What the research says</h2>
+<div class="finding-item"><div class="finding-main"><div class="finding-dot"></div><p class="finding-text">A <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Carr+intravenous+vitamin+C+cancer+review" target="_blank" rel="noopener">2018 review</a> looked at 19 studies of IV vitamin C in cancer patients. It found IV vitamin C is generally well tolerated. It did not find clear proof that it helps people live longer or shrink tumors.</p></div></div>
+<div class="finding-item"><div class="finding-main"><div class="finding-dot"></div><p class="finding-text">A <a href="https://pubmed.ncbi.nlm.nih.gov/23381814/" target="_blank" rel="noopener">2013 small trial</a> of 14 pancreatic cancer patients combined IV vitamin C with a different chemo drug (gemcitabine, not FOLFIRINOX). It was tolerated, and the patients lived a median of 13 months — but there was no comparison group, so this number cannot be read as proof that vitamin C helped.</p></div></div>
+<div class="finding-item"><div class="finding-main"><div class="finding-dot"></div><p class="finding-text">A <a href="https://pubmed.ncbi.nlm.nih.gov/22929971/" target="_blank" rel="noopener">2012 small trial</a> of 9 pancreatic cancer patients combined IV vitamin C with FOLFIRINOX (your chemo). It was tolerated — but one patient had a serious reaction because they had an undiagnosed condition called G6PD deficiency. That patient's red blood cells broke down (hemolytic anemia).</p></div></div>
+<div class="finding-item"><div class="finding-main"><div class="finding-dot"></div><p class="finding-text">No trials have tested high-dose IV vitamin C with FOLFIRINOX in pancreatic cancer beyond that one 9-patient study. There's no published data on survival or tumor response from this combination.</p></div></div>
+<div class="finding-item"><div class="finding-main"><div class="finding-dot"></div><p class="finding-text">A network of clinics (the <a href="https://www.riordanclinic.org/" target="_blank" rel="noopener">Riordan Clinic</a> in Kansas and similar centers) reports their own patient outcomes with their "Riordan protocol." These reports are not from independent researchers — the clinics sell the protocol, and the results have not been confirmed in independent trials.</p></div></div>
+<div class="anec">
+<h4>What you may have heard online</h4>
+<p>You may have heard high-dose IV vitamin C discussed on the Joe Rogan podcast (episode #1701 with Thomas Levy), or seen it on Reddit groups like r/pancreaticcancer and r/AlternativeCancerCures. A common claim is that "vitamin C cures cancer" or that it's "suppressed by drug companies." The lab idea behind vitamin C — that high doses might help — is real and has been studied for decades. But the claim that it cures cancer goes well beyond what the actual trials show.</p>
+<p style="margin-top:10px">One thing worth knowing: vitamin C can't be patented like a drug. That means drug companies have no reason to pay for the big trials that could finally settle whether it works. So the research stays small and the evidence stays thin — that's a real reason the science hasn't kept up with the hype.</p>
+</div>
+</div>
+
+<div class="card page-3-last">
+<h2>What we don't know yet</h2>
+<div class="gap-item"><div class="gap-icon">◯</div><p class="gap-text"><strong>No trial of IV vitamin C with FOLFIRINOX beyond the 9-patient study.</strong> There's no survival or tumor-shrinkage data for this specific combination. Everything we know about this exact mix comes from a single very small study.</p></div>
+<div class="gap-item"><div class="gap-icon">◯</div><p class="gap-text"><strong>G6PD screening is not standard.</strong> Most doctors don't routinely test for G6PD deficiency before chemo. Without that test, the one known safety risk of IV vitamin C goes unchecked.</p></div>
+<div class="gap-item"><div class="gap-icon">◯</div><p class="gap-text"><strong>No long-term safety data.</strong> The trials lasted weeks to months. We don't know what years of high-dose IV vitamin C might do — though for advanced pancreatic cancer, that may be a less pressing question than it is for earlier-stage patients.</p></div>
+<div class="gap-item"><div class="gap-icon">◯</div><p class="gap-text"><strong>No standardized dose.</strong> Different clinics use different IV doses — anywhere from 25 to 100+ grams per infusion. We don't know which dose, if any, is the most useful or safe.</p></div>
+</div>
+
+<div class="card page-4-last">
+<h2>Questions to bring to your doctor</h2>
+<p class="lede">If you're still thinking about trying IV vitamin C alongside your FOLFIRINOX, these are the questions worth bringing to your doctor first. Print or screenshot the list — they're based on what the research showed (and didn't show) for your situation.</p>
+<ol class="questions-list">
+<li>Should I be tested for G6PD deficiency before starting IV vitamin C? <span class="question-why">That's the one identified safety risk in the trials, and a simple blood test settles it.</span></li>
+<li>The available trials used different chemo regimens. Does my being on FOLFIRINOX change whether you'd consider this? <span class="question-why">The 9-patient study did use FOLFIRINOX but is too small to draw safety conclusions; ask for your team's read.</span></li>
+<li>Without clear proof of benefit, would you consider the tolerability data alone enough reason to try it? <span class="question-why">This is a values question — get your team's view on the risk-benefit balance for your situation.</span></li>
+<li>If we go ahead, how would we tell if it's helping or hurting? <span class="question-why">No standard "this is working" marker exists, so it's important to agree on what you'd monitor.</span></li>
+<li>Are there supportive options for fatigue or appetite that have stronger evidence than IV vitamin C? <span class="question-why">Your weight and appetite have dropped — there may be more proven options worth trying first.</span></li>
+</ol>
+</div>
+
+<div class="card">
+<h2>Clinical Summary — IV Vitamin C + Stage IV Pancreatic</h2>
+<dl class="kv">
+<dt>Patient context</dt><dd>58M · Stage IV pancreatic adenocarcinoma · first-line therapy</dd>
+<dt>Current treatment</dt><dd>FOLFIRINOX, cycle 3 of planned 12</dd>
+<dt>Comorbidities &amp; meds</dt><dd>None reported; 165 lb (down from 180 pre-diagnosis); reduced appetite; G6PD status unknown</dd>
+<dt>Conditional context</dt><dd>Recent weight loss noted; G6PD status not tested</dd>
+<dt>Research question</dt><dd>Is high-dose IV vitamin C safe and beneficial alongside FOLFIRINOX for Stage IV pancreatic cancer?</dd>
+<dt>Intervention</dt><dd>High-dose intravenous ascorbic acid (Riordan protocol-style dosing, typically 25–100 g per infusion)</dd>
+</dl>
+<div class="clinical-block">
+<h3>Strongest Evidence</h3>
+<ul>
+<li>Carr &amp; Cook, 2018 systematic review — IV ascorbate across 19 studies in mixed cancers — generally tolerated; no platinum-specific safety signal; efficacy evidence rated insufficient — independent funding</li>
+<li>Welsh et al., 2013 — phase I/II RCT N=14 pancreatic + gemcitabine — combination tolerated; median OS 13 months vs historical 6–11; no control arm — NIH-funded, no industry COI</li>
+<li>Monti et al., 2012 — phase I/II trial N=9 pancreatic + FOLFIRINOX — combination tolerated; 1 grade 3 hemolytic anemia in undetected G6PD deficiency — hospital research fund, no manufacturer involvement</li>
+</ul>
+</div>
+<div class="clinical-block">
+<h3>Structural COI</h3>
+<p><strong>Research-agenda capture</strong> — ascorbate is non-patentable; pharma has no incentive to fund large definitive trials; this is a structural reason the evidence base is small. <strong>Ideological capture</strong> — alternative-medicine movements have ideologically promoted IV vitamin C for cancer since Cameron &amp; Pauling (1970s); contemporary anecdotal sources are largely movement-affiliated. <strong>Publication bias</strong> — moderate; ClinicalTrials.gov shows 1 completed trial with no posted results.</p>
+</div>
+<div class="clinical-block">
+<h3>Interaction Concerns</h3>
+<p>G6PD deficiency — single grade 3 case in Monti 2012; G6PD screening not standard but recommended before initiation. No platinum interaction signal in available data. No data on irinotecan or 5-FU interaction with high-dose ascorbate.</p>
+</div>
+<div class="clinical-block">
+<h3>Evidence Gaps</h3>
+<p>No FOLFIRINOX-specific RCT beyond N=9 pilot. No survival or RECIST-response endpoint data. No standardized dose protocol. No maintenance-phase safety data. G6PD-screened cohort data absent.</p>
+</div>
+</div>
+
+<div class="card">
+<h2>Reference list</h2>
+<ol class="refs">
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/?term=Carr+intravenous+vitamin+C+cancer+review" target="_blank" rel="noopener">Carr AC, Cook J. Intravenous vitamin C for cancer therapy: a systematic review. <em>Frontiers in Physiology</em>, 2018.</a></li>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/23381814/" target="_blank" rel="noopener">Welsh JL, et al. Pharmacological ascorbate with gemcitabine for the treatment of pancreatic cancer: a phase I/II RCT. <em>Cancer Chemotherapy and Pharmacology</em>, 2013.</a></li>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/22929971/" target="_blank" rel="noopener">Monti DA, et al. Phase I evaluation of intravenous ascorbic acid in combination with gemcitabine and erlotinib in patients with metastatic pancreatic cancer. <em>PLoS One</em>, 2012.</a></li>
+<li><a href="https://clinicaltrials.gov/search?cond=pancreatic&amp;intr=ascorbic+acid" target="_blank" rel="noopener">ClinicalTrials.gov — registered trials of ascorbic acid in pancreatic cancer.</a></li>
+<li><a href="https://www.cancer.gov/about-cancer/treatment/cam/hp/pdq-summaries" target="_blank" rel="noopener">National Cancer Institute — High-Dose Vitamin C (PDQ®): Health Professional Version.</a></li>
+<li><a href="https://www.riordanclinic.org/" target="_blank" rel="noopener">Riordan Clinic — IVC Protocol (manufacturer's clinical guidance; not independently validated).</a></li>
+</ol>
+</div>
+
+<div class="footer" style="margin-top:36px;text-align:center;font-size:12px;color:var(--warm-gray-light)">
+<div style="color:var(--coral);font-family:'Lora',serif;font-weight:600;letter-spacing:.04em">VERA · VERIFIED EVIDENCE RESEARCH ANALYST</div>
+<div>This is a research tool, not medical advice. Bring this report to your oncologist.</div>
+</div>
+</div></body></html>

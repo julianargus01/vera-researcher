@@ -1,0 +1,172 @@
+{
+  "TITLE": "Fasting during R-CHOP for Stage III non-Hodgkin lymphoma",
+  "PATIENT_META": "49M · Stage III NHL · about to start R-CHOP (CAR-T possible later) · fish oil + turmeric + Zyrtec · 190 lb, appetite stable",
+  "REPORT_DATE": "2026-05-29",
+  "VERDICT_PARAGRAPH": "No one has tested fasting in people with your kind of cancer yet. The few small studies that exist are in other cancers (mostly breast), and they had mixed results — so we can't just take those findings and apply them to lymphoma. That means there's no direct evidence telling us whether fasting will help or hurt in your case. What we do know: R-CHOP makes it harder to keep weight up and eat enough protein, which your body needs to handle treatment. So the safety side matters more than the buzz online.",
+  "HELP_DOTS_FILLED": 0,
+  "HELP_LABEL": "We can't tell yet",
+  "HELP_EXPLAIN": "No studies have tested fasting in people with lymphoma. The few trials in other cancers had mixed results.",
+  "HURT_DOTS_FILLED": 2,
+  "HURT_LABEL": "Maybe — some concern",
+  "HURT_EXPLAIN": "Doctors recommend eating enough during chemo. Fasting could be risky if you lose weight or run low on protein.",
+  "COUNTS": [
+    {
+      "n": 2,
+      "label": "High-quality reviews (not in lymphoma)"
+    },
+    {
+      "n": 1,
+      "label": "Clinical trial (in breast cancer)"
+    },
+    {
+      "n": 0,
+      "label": "Trials in lymphoma",
+      "tag": "biggest gap"
+    },
+    {
+      "n": 4,
+      "label": "Smaller studies and case reports"
+    },
+    {
+      "n": 6,
+      "label": "Online claims we checked"
+    }
+  ],
+  "FINDINGS": [
+    {
+      "text": "A <b>2018 review</b> looked at fasting studies across different cancers. It didn't find clear proof that fasting helps people live longer. A few studies showed fewer chemo side effects, but those studies weren't very strong.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29699509/"
+    },
+    {
+      "text": "A <b>2022 review</b> combined results from several small fasting trials. It found small improvements in nausea and tiredness — but only in breast and ovarian cancer studies. <em>None of the studies included lymphoma.</em>",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Anic+therapeutic+fasting+chemotherapy"
+    },
+    {
+      "text": "A <b>2020 breast cancer trial</b> tried a \"fasting-mimicking diet\" (eating very little for a few days around chemo) in 131 patients. The diet group had better chemo results and less damage to their white blood cells. But this was breast cancer, not lymphoma, and the diet was supervised by their care team.",
+      "url": "https://www.nature.com/articles/s41467-020-16138-3"
+    },
+    {
+      "text": "One <b>lymphoma study</b> is registered on ClinicalTrials.gov (the U.S. database that tracks medical trials), but results haven't been shared yet.",
+      "url": "https://clinicaltrials.gov/search?cond=lymphoma&intr=fasting"
+    },
+    {
+      "text": "The <b>National Cancer Institute</b> (a U.S. health agency) advises against fasting on your own during chemo. They say your body needs enough calories and protein to recover from each round of treatment.",
+      "url": "https://www.cancer.gov/about-cancer/treatment/side-effects/appetite-loss/nutrition-pdq"
+    }
+  ],
+  "ANEC_PARAGRAPHS": [
+    "You may have heard fasting \"starves cancer cells\" on Joe Rogan, Peter Attia, or Huberman podcasts, or in Reddit groups like r/fasting and r/CancerCured. The idea comes from lab studies in mice, which gives it some real scientific basis. But it hasn't been shown to help people with cancer live longer or shrink their tumors. Most of the bold claims trace back to those mouse studies or to one small breast cancer trial — none of them tested lymphoma.",
+    "One thing worth knowing: nobody can patent fasting like a drug. That means drug companies have no reason to pay for the big trials that could finally settle the question. That's part of why the research on fasting and cancer stays small."
+  ],
+  "GAPS": [
+    {
+      "headline": "No clinical trial in lymphoma.",
+      "body": "Every completed study is in a different cancer (mostly breast). One lymphoma study is in progress, but it hasn't shared results yet."
+    },
+    {
+      "headline": "No study of fasting with R-CHOP.",
+      "body": "R-CHOP includes a steroid called prednisone that affects your blood sugar and appetite. Nobody has tested how fasting and that steroid work together."
+    },
+    {
+      "headline": "No study of fasting with CAR-T therapy.",
+      "body": "CAR-T treatment puts different needs on your body than regular chemo, so the answer here may not be the same."
+    },
+    {
+      "headline": "No agreed-on way to fast.",
+      "body": "Different studies tried different things — some had people drink only water, others used special diets that mimic fasting, others limited eating to certain hours of the day. With so many different setups, the studies can't really be compared."
+    }
+  ],
+  "QUESTIONS_LEDE": "If you're still thinking about trying fasting during treatment, these are the questions worth bringing to your doctor first. Print or screenshot the list — they're based on what the research showed (and didn't show) for your situation.",
+  "QUESTIONS": [
+    {
+      "ask": "Is there anything about R-CHOP — especially the prednisone — that would make fasting riskier for me specifically?",
+      "why": "Steroids affect blood sugar and appetite; the interaction with fasting hasn't been studied."
+    },
+    {
+      "ask": "If CAR-T comes after R-CHOP, would fasting before or during that be reasonable?",
+      "why": "CAR-T has different supportive-care needs; the answer may not be the same regimen-to-regimen."
+    },
+    {
+      "ask": "Could a supervised short fast around infusion days be a middle ground vs. prolonged fasting?",
+      "why": "The DIRECT trial used a 3-day fasting-mimicking diet around infusions; ask if anything similar is appropriate."
+    },
+    {
+      "ask": "Do my fish oil or turmeric change this calculation?",
+      "why": "Both have been raised as potential R-CHOP interaction questions; worth bringing up alongside fasting."
+    },
+    {
+      "ask": "If I lose weight or appetite during chemo, when does that become a reason to stop fasting attempts entirely?",
+      "why": "Get an explicit threshold from your team rather than guessing."
+    }
+  ],
+  "CLINICAL_KV": [
+    {
+      "label": "Patient context",
+      "value": "49M · Stage III NHL · first-line therapy"
+    },
+    {
+      "label": "Current treatment",
+      "value": "R-CHOP starting; CAR-T possible later"
+    },
+    {
+      "label": "Comorbidities & meds",
+      "value": "None; fish oil, turmeric, Zyrtec; environmental allergies; 190 lb, appetite normal"
+    },
+    {
+      "label": "Research question",
+      "value": "Is short-term fasting safe to begin during R-CHOP for Stage III NHL, and is there evidence it improves outcomes?"
+    },
+    {
+      "label": "Intervention",
+      "value": "Short-term therapeutic fasting / fasting-mimicking diet during chemotherapy"
+    }
+  ],
+  "CLINICAL_BLOCKS": [
+    {
+      "title": "Strongest Evidence",
+      "body": "de Groot et al., 2020 — DIRECT phase II RCT N=131 breast cancer — fasting-mimicking diet improved chemo response, reduced DNA damage in PBMCs — independent funding. Bauersfeld et al., 2018 systematic review — fasting and cancer chemotherapy outcomes — no clear survival benefit pooled, low GRADE certainty — independent funding. Anic et al., 2022 systematic review + meta-analysis — therapeutic fasting and chemo side effects — modest nausea/fatigue reduction; no lymphoma data — independent funding."
+    },
+    {
+      "title": "Structural COI",
+      "body": "Research-agenda capture — fasting is non-patentable; large RCTs are not funded by industry; this is a meaningful reason the lymphoma evidence is sparse. Ideological capture — wellness movements (longevity, biohacking) over-promote fasting for cancer. Publication bias — moderate; the registered lymphoma feasibility trial has no posted results."
+    },
+    {
+      "title": "Interaction Concerns",
+      "body": "Prednisone in R-CHOP affects glucose and appetite — fasting may compound. CAR-T (if later) has different supportive-care needs."
+    },
+    {
+      "title": "Evidence Gaps",
+      "body": "No RCT in lymphoma. No fasting + R-CHOP data. No fasting + CAR-T data. No safety data on prolonged (>72h) fasting during anthracycline-based chemo. No standardized fasting protocol for lymphoma populations."
+    }
+  ],
+  "REFERENCES": [
+    {
+      "citation": "Bauersfeld SP, et al. The effects of short-term fasting on quality of life and tolerance to chemotherapy in patients with breast and ovarian cancer. BMC Cancer, 2018.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29699509/"
+    },
+    {
+      "citation": "de Groot S, et al. Fasting mimicking diet as an adjunct to neoadjuvant chemotherapy for breast cancer in the multicentre randomized phase 2 DIRECT trial. Nature Communications, 2020.",
+      "url": "https://www.nature.com/articles/s41467-020-16138-3"
+    },
+    {
+      "citation": "Anic K, et al. Therapeutic Fasting in Reducing Chemotherapy Side Effects in Cancer Patients: A Systematic Review and Meta-Analysis. Nutrients, 2022.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Anic+therapeutic+fasting+chemotherapy"
+    },
+    {
+      "citation": "Fasting during cancer treatment: a systematic review. Supportive Care in Cancer, 2021.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=fasting+cancer+treatment+systematic+review+supportive"
+    },
+    {
+      "citation": "ClinicalTrials.gov — feasibility trial of fasting in lymphoma (results not yet posted).",
+      "url": "https://clinicaltrials.gov/search?cond=lymphoma&intr=fasting"
+    },
+    {
+      "citation": "National Cancer Institute — Nutrition in Cancer Care (PDQ®): Patient Version.",
+      "url": "https://www.cancer.gov/about-cancer/treatment/side-effects/appetite-loss/nutrition-pdq"
+    },
+    {
+      "citation": "Follicular lymphoma fasting case report & case series (Integrative Cancer Therapies, 2018–2020).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=follicular+lymphoma+fasting+case+report"
+    }
+  ]
+}

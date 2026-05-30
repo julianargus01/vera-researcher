@@ -1,0 +1,173 @@
+{
+  "TITLE": "High-dose IV vitamin C during FOLFIRINOX for Stage IV pancreatic cancer",
+  "PATIENT_META": "58M · Stage IV pancreatic cancer · FOLFIRINOX cycle 3 of planned 12 · no other meds · 165 lb (down from 180 pre-diagnosis) · appetite reduced",
+  "REPORT_DATE": "2026-05-29",
+  "VERDICT_PARAGRAPH": "This is a case where the evidence is small and mixed. A couple of small clinical trials in pancreatic cancer suggest that high-dose IV vitamin C can be added to chemotherapy without making things worse — but they don't show it helps you live longer or shrinks tumors. There is one specific safety issue (a condition called G6PD deficiency) that can cause a serious reaction. There's also a lot of online hype that runs ahead of what the actual evidence says. So this isn't a clear yes or no — it's a real \"maybe, with eyes open\" if you and your team decide to look closer.",
+  "HELP_DOTS_FILLED": 2,
+  "HELP_LABEL": "Maybe",
+  "HELP_EXPLAIN": "Two small trials in pancreatic cancer show it's tolerable — but neither was set up to prove it helps you live longer.",
+  "HURT_DOTS_FILLED": 3,
+  "HURT_LABEL": "Yes — one real risk",
+  "HURT_EXPLAIN": "People with an undiagnosed condition called G6PD deficiency can have a serious reaction. A simple blood test before starting is the standard safety check.",
+  "COUNTS": [
+    {
+      "n": 1,
+      "label": "High-quality review across 19 studies"
+    },
+    {
+      "n": 2,
+      "label": "Small clinical trials in pancreatic cancer"
+    },
+    {
+      "n": 0,
+      "label": "Trials with your exact chemo (FOLFIRINOX)",
+      "tag": "biggest gap"
+    },
+    {
+      "n": 1,
+      "label": "Documented safety case (G6PD-related)",
+      "tag": "safety"
+    },
+    {
+      "n": 8,
+      "label": "Online claims we checked (podcasts, Reddit, clinic sites)"
+    }
+  ],
+  "FINDINGS": [
+    {
+      "text": "A <b>2018 review</b> looked at 19 studies of IV vitamin C in cancer patients. It found IV vitamin C is generally well tolerated. It did not find clear proof that it helps people live longer or shrink tumors.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Carr+intravenous+vitamin+C+cancer+review"
+    },
+    {
+      "text": "A <b>2013 small trial</b> of 14 pancreatic cancer patients combined IV vitamin C with a different chemo drug (gemcitabine, not FOLFIRINOX). It was tolerated, and the patients lived a median of 13 months — but there was no comparison group, so this number cannot be read as proof that vitamin C helped.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23381814/"
+    },
+    {
+      "text": "A <b>2012 small trial</b> of 9 pancreatic cancer patients combined IV vitamin C with FOLFIRINOX (your chemo). It was tolerated — but one patient had a serious reaction because they had an undiagnosed condition called G6PD deficiency. That patient's red blood cells broke down (hemolytic anemia).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22929971/"
+    },
+    {
+      "text": "No trials have tested high-dose IV vitamin C with FOLFIRINOX in pancreatic cancer beyond that one 9-patient study. There's no published data on survival or tumor response from this combination."
+    },
+    {
+      "text": "A network of clinics (the <b>Riordan Clinic</b> in Kansas and similar centers) reports their own patient outcomes with their \"Riordan protocol.\" These reports are not from independent researchers — the clinics sell the protocol, and the results have not been confirmed in independent trials.",
+      "url": "https://www.riordanclinic.org/",
+      "coi": "The clinics sell the protocol they report on; results have not been confirmed in independent trials."
+    }
+  ],
+  "ANEC_PARAGRAPHS": [
+    "You may have heard high-dose IV vitamin C discussed on the Joe Rogan podcast (episode #1701 with Thomas Levy), or seen it on Reddit groups like r/pancreaticcancer and r/AlternativeCancerCures. A common claim is that \"vitamin C cures cancer\" or that it's \"suppressed by drug companies.\" The lab idea behind vitamin C — that high doses might help — is real and has been studied for decades. But the claim that it cures cancer goes well beyond what the actual trials show.",
+    "One thing worth knowing: vitamin C can't be patented like a drug. That means drug companies have no reason to pay for the big trials that could finally settle whether it works. So the research stays small and the evidence stays thin — that's a real reason the science hasn't kept up with the hype."
+  ],
+  "GAPS": [
+    {
+      "headline": "No trial of IV vitamin C with FOLFIRINOX beyond the 9-patient study.",
+      "body": "There's no survival or tumor-shrinkage data for this specific combination. Everything we know about this exact mix comes from a single very small study."
+    },
+    {
+      "headline": "G6PD screening is not standard.",
+      "body": "Most doctors don't routinely test for G6PD deficiency before chemo. Without that test, the one known safety risk of IV vitamin C goes unchecked."
+    },
+    {
+      "headline": "No long-term safety data.",
+      "body": "The trials lasted weeks to months. We don't know what years of high-dose IV vitamin C might do — though for advanced pancreatic cancer, that may be a less pressing question than it is for earlier-stage patients."
+    },
+    {
+      "headline": "No standardized dose.",
+      "body": "Different clinics use different IV doses — anywhere from 25 to 100+ grams per infusion. We don't know which dose, if any, is the most useful or safe."
+    }
+  ],
+  "QUESTIONS_LEDE": "If you're still thinking about trying IV vitamin C alongside your FOLFIRINOX, these are the questions worth bringing to your doctor first. Print or screenshot the list — they're based on what the research showed (and didn't show) for your situation.",
+  "QUESTIONS": [
+    {
+      "ask": "Should I be tested for G6PD deficiency before starting IV vitamin C?",
+      "why": "That's the one identified safety risk in the trials, and a simple blood test settles it."
+    },
+    {
+      "ask": "The available trials used different chemo regimens. Does my being on FOLFIRINOX change whether you'd consider this?",
+      "why": "The 9-patient study did use FOLFIRINOX but is too small to draw safety conclusions; ask for your team's read."
+    },
+    {
+      "ask": "Without clear proof of benefit, would you consider the tolerability data alone enough reason to try it?",
+      "why": "This is a values question — get your team's view on the risk-benefit balance for your situation."
+    },
+    {
+      "ask": "If we go ahead, how would we tell if it's helping or hurting?",
+      "why": "No standard \"this is working\" marker exists, so it's important to agree on what you'd monitor."
+    },
+    {
+      "ask": "Are there supportive options for fatigue or appetite that have stronger evidence than IV vitamin C?",
+      "why": "Your weight and appetite have dropped — there may be more proven options worth trying first."
+    }
+  ],
+  "CLINICAL_KV": [
+    {
+      "label": "Patient context",
+      "value": "58M · Stage IV pancreatic adenocarcinoma · first-line therapy"
+    },
+    {
+      "label": "Current treatment",
+      "value": "FOLFIRINOX, cycle 3 of planned 12"
+    },
+    {
+      "label": "Comorbidities & meds",
+      "value": "None reported; 165 lb (down from 180 pre-diagnosis); reduced appetite; G6PD status unknown"
+    },
+    {
+      "label": "Conditional context",
+      "value": "Recent weight loss noted; G6PD status not tested"
+    },
+    {
+      "label": "Research question",
+      "value": "Is high-dose IV vitamin C safe and beneficial alongside FOLFIRINOX for Stage IV pancreatic cancer?"
+    },
+    {
+      "label": "Intervention",
+      "value": "High-dose intravenous ascorbic acid (Riordan protocol-style dosing, typically 25–100 g per infusion)"
+    }
+  ],
+  "CLINICAL_BLOCKS": [
+    {
+      "title": "Strongest Evidence",
+      "body": "Carr & Cook, 2018 systematic review — IV ascorbate across 19 studies in mixed cancers — generally tolerated; no platinum-specific safety signal; efficacy evidence rated insufficient (independent funding). Welsh et al., 2013 — phase I/II RCT N=14 pancreatic + gemcitabine — combination tolerated; median OS 13 months vs historical 6–11; no control arm (NIH-funded). Monti et al., 2012 — phase I/II trial N=9 pancreatic + FOLFIRINOX — combination tolerated; 1 grade 3 hemolytic anemia in undetected G6PD deficiency."
+    },
+    {
+      "title": "Structural COI",
+      "body": "Research-agenda capture — ascorbate is non-patentable; pharma has no incentive to fund large definitive trials; this is a structural reason the evidence base is small. Ideological capture — alternative-medicine movements have ideologically promoted IV vitamin C for cancer since Cameron & Pauling (1970s); contemporary anecdotal sources are largely movement-affiliated. Publication bias — moderate; ClinicalTrials.gov shows 1 completed trial with no posted results."
+    },
+    {
+      "title": "Interaction Concerns",
+      "body": "G6PD deficiency — single grade 3 case in Monti 2012; G6PD screening not standard but recommended before initiation. No platinum interaction signal in available data. No data on irinotecan or 5-FU interaction with high-dose ascorbate."
+    },
+    {
+      "title": "Evidence Gaps",
+      "body": "No FOLFIRINOX-specific RCT beyond N=9 pilot. No survival or RECIST-response endpoint data. No standardized dose protocol. No maintenance-phase safety data. G6PD-screened cohort data absent."
+    }
+  ],
+  "REFERENCES": [
+    {
+      "citation": "Carr AC, Cook J. Intravenous vitamin C for cancer therapy: a systematic review. Frontiers in Physiology, 2018.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Carr+intravenous+vitamin+C+cancer+review"
+    },
+    {
+      "citation": "Welsh JL, et al. Pharmacological ascorbate with gemcitabine for the treatment of pancreatic cancer: a phase I/II RCT. Cancer Chemotherapy and Pharmacology, 2013.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23381814/"
+    },
+    {
+      "citation": "Monti DA, et al. Phase I evaluation of intravenous ascorbic acid in combination with gemcitabine and erlotinib in patients with metastatic pancreatic cancer. PLoS One, 2012.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22929971/"
+    },
+    {
+      "citation": "ClinicalTrials.gov — registered trials of ascorbic acid in pancreatic cancer.",
+      "url": "https://clinicaltrials.gov/search?cond=pancreatic&intr=ascorbic+acid"
+    },
+    {
+      "citation": "National Cancer Institute — High-Dose Vitamin C (PDQ®): Health Professional Version.",
+      "url": "https://www.cancer.gov/about-cancer/treatment/cam/hp/pdq-summaries"
+    },
+    {
+      "citation": "Riordan Clinic — IVC Protocol (manufacturer's clinical guidance; not independently validated).",
+      "url": "https://www.riordanclinic.org/"
+    }
+  ]
+}

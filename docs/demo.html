@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VERA — Integrative Oncology Research Analyst</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --vera-teal: #1a7f7a;
+      --vera-teal-light: #e8f5f4;
+      --vera-teal-mid: #2a9d97;
+      --patient-bg: #f0f4ff;
+      --patient-border: #c7d3f5;
+      --bg: #f7f9fc;
+      --surface: #ffffff;
+      --text: #1a2233;
+      --text-secondary: #5a6a7e;
+      --text-muted: #8a96a8;
+      --border: #e4e9f0;
+      --shadow: 0 2px 16px rgba(26,127,122,0.08);
+      --radius: 18px;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 16px 48px;
+    }
+
+    /* ── Page header ── */
+    .page-header {
+      width: 100%;
+      max-width: 720px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .page-logo {
+      width: 38px; height: 38px;
+      background: var(--vera-teal);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff;
+      font-size: 18px; font-weight: 700;
+      letter-spacing: -0.5px;
+      flex-shrink: 0;
+    }
+    .page-logo-text { display: flex; flex-direction: column; }
+    .page-logo-text .name { font-size: 17px; font-weight: 700; color: var(--text); letter-spacing: -0.3px; }
+    .page-logo-text .tagline { font-size: 11.5px; color: var(--text-muted); font-weight: 400; }
+    .page-header-right { margin-left: auto; }
+    .live-badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: #fff; border: 1.5px solid var(--border);
+      border-radius: 99px; padding: 4px 10px;
+      font-size: 11.5px; font-weight: 500; color: var(--text-secondary);
+    }
+    .live-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 0 2px rgba(34,197,94,0.25);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; box-shadow: 0 0 0 2px rgba(34,197,94,0.25); }
+      50% { opacity: 0.8; box-shadow: 0 0 0 4px rgba(34,197,94,0.15); }
+    }
+
+    /* ── Chat window ── */
+    .chat-window {
+      width: 100%; max-width: 720px;
+      background: var(--surface);
+      border-radius: 20px;
+      border: 1.5px solid var(--border);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* Top bar */
+    .chat-topbar {
+      background: var(--surface);
+      border-bottom: 1.5px solid var(--border);
+      padding: 14px 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .vera-avatar-sm {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--vera-teal), var(--vera-teal-mid));
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-size: 14px; font-weight: 700;
+      flex-shrink: 0;
+    }
+    .vera-topbar-info .vera-name { font-size: 14px; font-weight: 600; color: var(--text); }
+    .vera-topbar-info .vera-role { font-size: 11.5px; color: var(--text-muted); font-weight: 400; }
+    .topbar-status { margin-left: auto; display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-secondary); }
+    .status-dot { width: 7px; height: 7px; border-radius: 50%; background: #22c55e; flex-shrink: 0; }
+
+    /* Messages area */
+    .messages {
+      flex: 1;
+      padding: 24px 20px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      min-height: 420px;
+      max-height: 580px;
+    }
+
+    /* Message rows */
+    .msg-row { display: flex; gap: 10px; align-items: flex-end; }
+    .msg-row.patient { flex-direction: row-reverse; }
+    .msg-row.vera { flex-direction: row; }
+
+    .vera-avatar {
+      width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--vera-teal), var(--vera-teal-mid));
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-size: 12px; font-weight: 700;
+      align-self: flex-end; margin-bottom: 2px;
+    }
+
+    .bubble-wrap { max-width: 78%; display: flex; flex-direction: column; gap: 4px; }
+    .msg-row.patient .bubble-wrap { align-items: flex-end; }
+    .msg-row.vera .bubble-wrap { align-items: flex-start; }
+
+    .bubble {
+      padding: 12px 16px;
+      border-radius: 18px;
+      font-size: 14.5px;
+      line-height: 1.6;
+      word-break: break-word;
+    }
+    .vera .bubble {
+      background: var(--vera-teal-light);
+      color: var(--text);
+      border-bottom-left-radius: 4px;
+    }
+    .patient .bubble {
+      background: var(--patient-bg);
+      color: var(--text);
+      border-bottom-right-radius: 4px;
+      border: 1.5px solid var(--patient-border);
+    }
+
+    .msg-time {
+      font-size: 10.5px;
+      color: var(--text-muted);
+      padding: 0 4px;
+    }
+
+    /* Typing / researching indicators */
+    .typing-indicator {
+      display: flex; align-items: center; gap: 5px;
+      padding: 12px 16px;
+      background: var(--vera-teal-light);
+      border-radius: 18px; border-bottom-left-radius: 4px;
+      width: fit-content;
+    }
+    .typing-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--vera-teal);
+      animation: bounce 1.2s ease-in-out infinite;
+    }
+    .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+    .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes bounce {
+      0%, 80%, 100% { transform: translateY(0); opacity: 0.5; }
+      40% { transform: translateY(-5px); opacity: 1; }
+    }
+
+    .researching-block {
+      display: flex; flex-direction: column; gap: 8px;
+      padding: 14px 16px;
+      background: linear-gradient(135deg, #f0faf9, #e8f5f4);
+      border: 1.5px solid rgba(26,127,122,0.2);
+      border-radius: 14px; border-bottom-left-radius: 4px;
+      width: fit-content; max-width: 320px;
+    }
+    .researching-label {
+      font-size: 12.5px; font-weight: 600; color: var(--vera-teal);
+      display: flex; align-items: center; gap: 7px;
+    }
+    .researching-label .spin {
+      width: 13px; height: 13px; border-radius: 50%;
+      border: 2px solid var(--vera-teal);
+      border-top-color: transparent;
+      animation: spin 0.8s linear infinite;
+      flex-shrink: 0;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .researching-sources {
+      display: flex; flex-direction: column; gap: 4px;
+    }
+    .source-item {
+      font-size: 11.5px; color: var(--text-secondary);
+      display: flex; align-items: center; gap: 6px;
+      opacity: 0;
+      animation: fade-in-up 0.4s ease forwards;
+    }
+    .source-item:nth-child(1) { animation-delay: 0.3s; }
+    .source-item:nth-child(2) { animation-delay: 0.9s; }
+    .source-item:nth-child(3) { animation-delay: 1.5s; }
+    @keyframes fade-in-up {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .source-check {
+      width: 14px; height: 14px; border-radius: 50%;
+      border: 1.5px solid var(--vera-teal);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-size: 8px; color: var(--vera-teal);
+    }
+
+    /* Report card */
+    .report-card {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-left: 4px solid var(--vera-teal);
+      border-radius: 14px;
+      padding: 16px;
+      max-width: 340px;
+      box-shadow: 0 2px 12px rgba(26,127,122,0.08);
+    }
+    .report-card-header {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 12px;
+    }
+    .report-icon {
+      width: 34px; height: 34px; border-radius: 9px;
+      background: var(--vera-teal); flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+    }
+    .report-title { font-size: 13.5px; font-weight: 700; color: var(--text); line-height: 1.3; }
+    .report-subtitle { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+    .report-sections { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+    .report-section-item {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 12px; color: var(--text-secondary);
+    }
+    .section-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--vera-teal); flex-shrink: 0;
+    }
+    .btn-view-report {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--vera-teal);
+      color: #fff;
+      font-family: inherit;
+      font-size: 13px; font-weight: 600;
+      padding: 9px 16px; border-radius: 9px;
+      border: none; cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .btn-view-report:hover { background: #156462; transform: translateY(-1px); }
+    .btn-view-report:active { transform: translateY(0); }
+
+    /* Bottom bar */
+    .chat-bottombar {
+      border-top: 1.5px solid var(--border);
+      padding: 14px 20px;
+      display: flex; align-items: center; gap: 10px;
+      background: #fafbfc;
+    }
+    .input-mock {
+      flex: 1; background: var(--bg);
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 13.5px; color: var(--text-muted);
+      pointer-events: none; user-select: none;
+    }
+    .send-btn-mock {
+      width: 36px; height: 36px; border-radius: 9px;
+      background: var(--vera-teal);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      opacity: 0.4;
+    }
+    .send-icon { width: 16px; height: 16px; fill: #fff; }
+
+    /* Action buttons */
+    .action-bar {
+      width: 100%; max-width: 720px;
+      display: flex; gap: 12px; margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    .btn-action {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-family: inherit; font-size: 13.5px; font-weight: 600;
+      padding: 10px 20px; border-radius: 10px;
+      border: none; cursor: pointer;
+      transition: background 0.15s, transform 0.1s, box-shadow 0.15s;
+    }
+    .btn-action:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.12); }
+    .btn-action:active { transform: translateY(0); }
+    .btn-restart {
+      background: var(--surface); color: var(--text);
+      border: 1.5px solid var(--border);
+    }
+    .btn-try-live {
+      background: var(--vera-teal); color: #fff;
+      flex: 1; justify-content: center;
+    }
+
+    /* Disclaimer */
+    .disclaimer {
+      width: 100%; max-width: 720px;
+      margin-top: 20px;
+      font-size: 11px; color: var(--text-muted);
+      line-height: 1.6; text-align: center;
+    }
+
+    /* Message appear animation */
+    .msg-row {
+      opacity: 0;
+      animation: msg-appear 0.3s ease forwards;
+    }
+    @keyframes msg-appear {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Cursor blink in typewriter */
+    .typing-cursor {
+      display: inline-block;
+      width: 1.5px; height: 1em;
+      background: var(--vera-teal);
+      margin-left: 1px;
+      vertical-align: text-bottom;
+      animation: blink 0.6s step-end infinite;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    /* Scrollbar */
+    .messages::-webkit-scrollbar { width: 5px; }
+    .messages::-webkit-scrollbar-track { background: transparent; }
+    .messages::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+
+    /* Mobile */
+    @media (max-width: 600px) {
+      body { padding: 16px 10px 40px; }
+      .messages { max-height: 480px; padding: 16px 14px; }
+      .bubble-wrap { max-width: 88%; }
+      .chat-topbar { padding: 12px 14px; }
+      .chat-bottombar { padding: 10px 14px; }
+      .report-card { max-width: 100%; }
+      .action-bar { flex-direction: column; }
+      .btn-try-live { flex: unset; width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Page header -->
+  <header class="page-header">
+    <div class="page-logo">V</div>
+    <div class="page-logo-text">
+      <span class="name">VERA</span>
+      <span class="tagline">Integrative Oncology Research Analyst</span>
+    </div>
+    <div class="page-header-right">
+      <span class="live-badge"><span class="live-dot"></span>Demo session</span>
+    </div>
+  </header>
+
+  <!-- Chat window -->
+  <div class="chat-window">
+
+    <!-- Top bar -->
+    <div class="chat-topbar">
+      <div class="vera-avatar-sm">V</div>
+      <div class="vera-topbar-info">
+        <div class="vera-name">VERA</div>
+        <div class="vera-role">Research Analyst · Integrative Oncology</div>
+      </div>
+      <div class="topbar-status">
+        <span class="status-dot"></span>
+        <span>Active session</span>
+      </div>
+    </div>
+
+    <!-- Messages -->
+    <div class="messages" id="messages"></div>
+
+    <!-- Bottom bar (mock input) -->
+    <div class="chat-bottombar">
+      <div class="input-mock" id="inputPlaceholder">Waiting for session…</div>
+      <div class="send-btn-mock">
+        <svg class="send-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- Action buttons (hidden until end) -->
+  <div class="action-bar" id="actionBar" style="display:none;">
+    <button class="btn-action btn-restart" id="btnRestart">
+      ↺ Start over
+    </button>
+    <a href="#live-demo" class="btn-action btn-try-live">
+      Try VERA live →
+    </a>
+  </div>
+
+  <!-- Disclaimer -->
+  <p class="disclaimer">
+    This is a scripted demonstration of a VERA research session. Evidence summaries are based on published research.<br>
+    VERA is not a substitute for medical advice. Always discuss treatment decisions with your oncology team.
+  </p>
+
+  <script>
+  // ── Conversation script ──────────────────────────────────────────────────────
+
+  const VERA_TYPING_CPS = 9;  // characters per second for typewriter
+  const VERA_DELAY_BEFORE_START = 600; // ms before first message
+
+  // Returns formatted time string
+  function nowTime() {
+    const d = new Date();
+    let h = d.getHours(), m = d.getMinutes();
+    const ampm = h >= 12 ? 'PM' : 'AM';
+    h = h % 12 || 12;
+    return `${h}:${m.toString().padStart(2,'0')} ${ampm}`;
+  }
+
+  // ── Message definitions ─────────────────────────────────────────────────────
+  // type: 'patient' | 'vera' | 'researching'
+  // For vera: text is the full string to typewrite
+  // delay: ms to wait before showing this item (after previous completes)
+
+  const SCRIPT = [
+    {
+      type: 'patient',
+      delay: 0,
+      text: "I've been reading about high-dose IV vitamin C for cancer. My naturopath is offering it as an add-on to my chemo. Is there anything to this?",
+    },
+    {
+      type: 'vera-thinking',
+      delay: 1600,
+    },
+    {
+      type: 'vera',
+      delay: 0,
+      text: "Hi — thanks for bringing this to me. High-dose IV vitamin C is one of the most actively researched complementary therapies in oncology right now, and also one of the most over-hyped online. So this is a fair question to dig into carefully.\n\nBefore I pull the research, what type of cancer are you being treated for, and where are you in treatment?",
+    },
+    {
+      type: 'patient',
+      delay: 3200,
+      text: "Stage IV pancreatic cancer. I'm on FOLFIRINOX, just finished cycle 3 of 12. Not on any other meds. I've lost about 15 pounds since diagnosis and my appetite has been pretty rough.",
+    },
+    {
+      type: 'vera-thinking',
+      delay: 1400,
+    },
+    {
+      type: 'vera',
+      delay: 0,
+      text: "Got it. Pancreatic on FOLFIRINOX is one of the more specific contexts where IV vitamin C has actually been studied — so there's some real data to work with, not just extrapolation from other cancers.\n\nOne more thing before I start: are you most interested in whether it might help the chemo work better, whether it might help with how you feel during cycles, or both? And is your naturopath checking your G6PD status before infusions?",
+    },
+    {
+      type: 'patient',
+      delay: 3000,
+      text: "Both, honestly — I'd love to know if it actually does something against the cancer, and if it could help me tolerate the chemo. I have no idea what G6PD is and no one has mentioned it to me.",
+    },
+    {
+      type: 'vera-thinking',
+      delay: 1200,
+    },
+    {
+      type: 'vera',
+      delay: 0,
+      text: "Okay — that last point matters a lot, so I'll flag it explicitly when I write your report. G6PD deficiency is a genetic condition that can cause a serious reaction with high-dose IV vitamin C, and screening for it before infusions is standard of care at responsible clinics. I'll put that in the questions section.\n\nI'm going to research this now. I'll start with Europe PMC and PubMed for clinical trials in pancreatic cancer, then ClinicalTrials.gov for what's actively running, and I'll cross-check the safety literature. Give me a moment.",
+    },
+    {
+      type: 'researching',
+      delay: 800,
+      duration: 5200,
+    },
+    {
+      type: 'vera',
+      delay: 0,
+      text: "Okay — here's what the evidence looks like.\n\nThe research base in pancreatic cancer is small but real. A couple of small Phase I/II trials (Welsh et al., Polireddy et al.) combined high-dose IV vitamin C with gemcitabine-based chemotherapy and reported it was generally tolerated without making toxicity worse. They did NOT show statistically significant improvements in tumor response or overall survival — these were safety and feasibility studies, not efficacy trials. So the honest read is: it doesn't appear to harm your chemo, but the evidence that it adds therapeutic benefit isn't there yet at the level we'd want.\n\nOn the safety question: that G6PD point is the most important thing in this entire review. People with G6PD deficiency can have severe hemolysis from high-dose IV vitamin C — a one-time genetic test before your first infusion prevents this. It's a 5-minute blood draw.\n\nOn what you'll find online: there's a lot of content — including from Riordan Clinic and several integrative oncology centers — that frames high-dose IV C as a near-certain tumor-fighter. That framing runs ahead of the published data. Some of those clinics also sell the protocol, which is worth knowing as you weigh the recommendation.\n\nBottom line: the evidence supports 'safe to add when properly screened, but don't expect it to be the thing that drives your outcome.' The questions for your oncologist are about G6PD screening, vitamin C timing relative to chemo cycles, and whether your treatment plan has room for this kind of addition without crowding out higher-evidence supportive care.",
+    },
+    {
+      type: 'vera',
+      delay: 1200,
+      text: "I've put together your full research report. It includes the verdict and dashboard, the studies I found tier-tagged by quality, the clinical summary for your oncologist, and the exact questions to bring to your next appointment.",
+    },
+    {
+      type: 'report-card',
+      delay: 700,
+    },
+  ];
+
+  // ── DOM helpers ──────────────────────────────────────────────────────────────
+
+  const messagesEl = document.getElementById('messages');
+  const inputPlaceholder = document.getElementById('inputPlaceholder');
+  const actionBar = document.getElementById('actionBar');
+
+  function scrollBottom() {
+    messagesEl.scrollTo({ top: messagesEl.scrollHeight, behavior: 'smooth' });
+  }
+
+  function createMsgRow(type) {
+    const row = document.createElement('div');
+    row.className = `msg-row ${type}`;
+    return row;
+  }
+
+  // Build a VERA row shell (avatar + bubble wrap)
+  function buildVeraShell() {
+    const row = createMsgRow('vera');
+    const avatar = document.createElement('div');
+    avatar.className = 'vera-avatar';
+    avatar.textContent = 'V';
+    const wrap = document.createElement('div');
+    wrap.className = 'bubble-wrap';
+    row.appendChild(avatar);
+    row.appendChild(wrap);
+    return { row, wrap };
+  }
+
+  // Build patient message (appears instantly)
+  function appendPatientMessage(text) {
+    const row = createMsgRow('patient');
+    const wrap = document.createElement('div');
+    wrap.className = 'bubble-wrap';
+    const bubble = document.createElement('div');
+    bubble.className = 'bubble';
+    bubble.textContent = text;
+    const time = document.createElement('div');
+    time.className = 'msg-time';
+    time.textContent = nowTime();
+    wrap.appendChild(bubble);
+    wrap.appendChild(time);
+    row.appendChild(wrap);
+    messagesEl.appendChild(row);
+    scrollBottom();
+  }
+
+  // Typing indicator (three dots)
+  function appendTypingIndicator() {
+    const { row, wrap } = buildVeraShell();
+    const ind = document.createElement('div');
+    ind.className = 'typing-indicator';
+    for (let i = 0; i < 3; i++) {
+      const dot = document.createElement('span');
+      dot.className = 'typing-dot';
+      ind.appendChild(dot);
+    }
+    wrap.appendChild(ind);
+    messagesEl.appendChild(row);
+    scrollBottom();
+    return row;
+  }
+
+  // Researching block
+  function appendResearchingBlock() {
+    const { row, wrap } = buildVeraShell();
+    const block = document.createElement('div');
+    block.className = 'researching-block';
+    block.innerHTML = `
+      <div class="researching-label">
+        <span class="spin"></span>
+        Researching…
+      </div>
+      <div class="researching-sources">
+        <div class="source-item"><span class="source-check">✓</span>Europe PMC — IV vitamin C + pancreatic clinical trials</div>
+        <div class="source-item"><span class="source-check">✓</span>PubMed — Phase I/II combination studies, safety data</div>
+        <div class="source-item"><span class="source-check">✓</span>ClinicalTrials.gov — active trials in pancreatic</div>
+        <div class="source-item"><span class="source-check">✓</span>Semantic Scholar — cross-check G6PD safety literature</div>
+      </div>
+    `;
+    wrap.appendChild(block);
+    messagesEl.appendChild(row);
+    scrollBottom();
+    return row;
+  }
+
+  // Typewriter VERA message → returns Promise that resolves when done
+  function appendVeraTypewriter(text) {
+    return new Promise(resolve => {
+      const { row, wrap } = buildVeraShell();
+      const bubble = document.createElement('div');
+      bubble.className = 'bubble';
+      const cursor = document.createElement('span');
+      cursor.className = 'typing-cursor';
+
+      // Handle newlines: render as <br> tags
+      // We'll track a "display node" approach
+      let displayHTML = '';
+      let charIdx = 0;
+      const chars = text.split('');
+
+      bubble.appendChild(cursor);
+      wrap.appendChild(bubble);
+      messagesEl.appendChild(row);
+      scrollBottom();
+
+      const INTERVAL_MS = Math.round(1000 / (VERA_TYPING_CPS * 5)); // ~22ms per char at 45cps
+
+      const interval = setInterval(() => {
+        if (charIdx >= chars.length) {
+          clearInterval(interval);
+          // Remove cursor, add time
+          cursor.remove();
+          const time = document.createElement('div');
+          time.className = 'msg-time';
+          time.textContent = nowTime();
+          wrap.appendChild(time);
+          scrollBottom();
+          resolve();
+          return;
+        }
+
+        const ch = chars[charIdx];
+        if (ch === '\n') {
+          displayHTML += '<br>';
+        } else {
+          displayHTML += ch.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        }
+        charIdx++;
+        // Re-render bubble content before cursor
+        bubble.innerHTML = displayHTML;
+        bubble.appendChild(cursor);
+
+        // Scroll every ~10 chars
+        if (charIdx % 10 === 0) scrollBottom();
+      }, INTERVAL_MS);
+    });
+  }
+
+  // Report card
+  function appendReportCard() {
+    const { row, wrap } = buildVeraShell();
+    const card = document.createElement('div');
+    card.className = 'report-card';
+    card.innerHTML = `
+      <div class="report-card-header">
+        <div class="report-icon">📋</div>
+        <div>
+          <div class="report-title">Your research report is ready</div>
+          <div class="report-subtitle">High-dose IV vitamin C · Stage IV pancreatic · FOLFIRINOX</div>
+        </div>
+      </div>
+      <div class="report-sections">
+        <div class="report-section-item"><span class="section-dot"></span>Verdict and dashboard (page 1)</div>
+        <div class="report-section-item"><span class="section-dot"></span>Findings, gaps &amp; sources tier-tagged (pages 2–3)</div>
+        <div class="report-section-item"><span class="section-dot"></span>Questions for your oncologist (page 4)</div>
+        <div class="report-section-item"><span class="section-dot"></span>Clinical summary for handoff (page 5)</div>
+        <div class="report-section-item"><span class="section-dot"></span>Reference list (page 6)</div>
+      </div>
+      <a href="samples/sample-mixed-evidence.pdf" class="btn-view-report" target="_blank" rel="noopener">
+        Open the PDF →
+      </a>
+    `;
+    wrap.appendChild(card);
+    messagesEl.appendChild(row);
+    scrollBottom();
+  }
+
+  // ── Sequencer ────────────────────────────────────────────────────────────────
+
+  function wait(ms) {
+    return new Promise(r => setTimeout(r, ms));
+  }
+
+  async function runScript() {
+    inputPlaceholder.textContent = 'Session in progress…';
+    await wait(VERA_DELAY_BEFORE_START);
+
+    for (const step of SCRIPT) {
+      await wait(step.delay || 0);
+
+      if (step.type === 'patient') {
+        appendPatientMessage(step.text);
+
+      } else if (step.type === 'vera-thinking') {
+        const indicator = appendTypingIndicator();
+        // Remove after a random short thinking delay (1.2–2s)
+        const thinkMs = 1200 + Math.random() * 800;
+        await wait(thinkMs);
+        indicator.remove();
+
+      } else if (step.type === 'vera') {
+        await appendVeraTypewriter(step.text);
+
+      } else if (step.type === 'researching') {
+        const rBlock = appendResearchingBlock();
+        await wait(step.duration || 4000);
+        rBlock.remove();
+
+      } else if (step.type === 'report-card') {
+        appendReportCard();
+        await wait(600);
+      }
+    }
+
+    // Session complete
+    inputPlaceholder.textContent = 'Session complete';
+    actionBar.style.display = 'flex';
+  }
+
+  // ── Restart ──────────────────────────────────────────────────────────────────
+
+  document.getElementById('btnRestart').addEventListener('click', () => {
+    messagesEl.innerHTML = '';
+    actionBar.style.display = 'none';
+    inputPlaceholder.textContent = 'Waiting for session…';
+    runScript();
+  });
+
+  // ── Start ────────────────────────────────────────────────────────────────────
+  runScript();
+  </script>
+</body>
+</html>
