@@ -23,7 +23,7 @@ VERA will greet you. Just ask your question.
 
 ## 90-second cold test
 
-Open a new session. Tell VERA you're a Stage II breast cancer patient finishing AC chemotherapy and you want to know whether continuing daily cold plunges is safe once you start Taxol. Don't over-explain — give her the basics and let her ask what she needs. Watch how she scopes the question before synthesizing. That's the behavior that separates her from a search engine.
+Open a new session. Ask VERA about a treatment like, "I hear cold plunging helps fight tumor growth, is that true?" Don't over-explain — give her the basics and let her ask what she needs. Watch how she scopes the question before synthesizing. That's the behavior that separates her from a search engine.
 
 ---
 
@@ -31,12 +31,12 @@ Open a new session. Tell VERA you're a Stage II breast cancer patient finishing 
 
 When VERA finishes, she delivers a graphic report — not a wall of text.
 
-- **In chat:** a single link that reads "Click here for the full report." Clicking it opens the 6-page PDF. Page 1 IS the hero + the honest answer + the two-question dashboard — your at-a-glance view is the first page of the report.
+- **In chat:** a single link that reads "Click here for the full report." Clicking it opens the 6-page PDF. Page 1 is the Verdict dashboard — your at-a-glance view is the first page of the report.
 - **The full report (`final-report.pdf`):** six pages. Pages 1–4 are written for you (the verdict, the findings, what we don't know, and questions to bring to your oncologist). Pages 5–6 are written for your oncologist (a dense one-page clinical summary plus a hyperlinked reference list).
 
 Two questions sit at the heart of the dashboard: *Will it help?* and *Could it hurt?* Each gets 0–5 confidence dots and a plain-language label. Strong evidence against (5 dots + "No"), nothing to go on (0 dots + "We can't tell yet"), and everything in between read the same way at a glance.
 
-Patient-facing pages are written at a 6th-grade reading level. Internal evidence tiers (T1 through T6) and conflict-of-interest flags drive the analysis but are translated into plain language for you — no jargon, no abbreviations.
+Patient-facing pages are written so they are easy to understand. Internal evidence tiers (T1 through T6) and conflict-of-interest flags drive the analysis but are translated into plain language for you — no jargon, no abbreviations.
 
 ## What VERA will not do
 
@@ -51,7 +51,7 @@ These are structural limits, not preferences. They exist to protect you.
 
 ## How it's built
 
-VERA implements Interpretable Context Methodology (ICM) to canonical, with one architectural extension: **phase isolation via subprocess dispatch**. Each phase runs in its own context window to prevent the bloat that single-turn cascades produce.
+VERA implements Interpretable Context Methodology (ICM).
 
 - **`identity.md`** is the L1 router. It carries a `| Task | Go to | Read |` table. VERA reads it first every session and matches her current task to a row based on which `output/` files exist.
 - **`01-scoping/`, `02-research/`, `03-delivery/`** are the three phase folders. Each holds a `rules.md` (Inputs / Process / Outputs contract), an `examples.md` (calibration tape), a `reference/` folder (voice rules plus any phase-scoped references), and an `output/` folder where the phase's artifact lands.
