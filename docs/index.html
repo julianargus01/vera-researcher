@@ -302,17 +302,40 @@
       line-height: 1.7;
     }
 
-    /* RECEIPTS */
-    #receipts { background: var(--warm-white); }
-    .receipts-grid {
+    /* INLINE DEMO */
+    #demo { background: var(--warm-white); }
+    .demo-frame-wrap {
       margin-top: 2.5rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.25rem;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1.5px solid rgba(0,0,0,0.08);
+      box-shadow: 0 12px 48px rgba(61,34,32,0.10);
+      background: #f7f9fc;
+    }
+    .demo-iframe {
+      width: 100%;
+      height: 820px;
+      border: 0;
+      display: block;
     }
     @media (max-width: 700px) {
-      .receipts-grid { grid-template-columns: 1fr; }
+      .demo-iframe { height: 720px; }
     }
+    .demo-pdf-cta {
+      margin-top: 2.25rem;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .demo-pdf-cta .label {
+      font-size: 0.9rem;
+      color: var(--warm-gray);
+      max-width: 320px;
+      line-height: 1.55;
+    }
+
+    /* legacy receipts (kept for shared card styles) */
     .receipt-card {
       background: var(--cream);
       border-radius: 16px;
@@ -553,15 +576,15 @@
       VERA is an AI research analyst that evaluates complementary cancer therapies using a rigorous evidence hierarchy — so you can walk into your next appointment informed.
     </p>
     <div class="hero-actions">
-      <a href="#video" class="btn-primary">Watch the demo →</a>
-      <a href="#how-it-works" class="btn-text">See how it works</a>
+      <a href="#demo" class="btn-primary">See the demo →</a>
+      <a href="#video" class="btn-text">Watch the 90-second explainer</a>
     </div>
   </section>
 
   <!-- VIDEO — near the top, just below hero -->
   <section class="video-section" id="video">
-    <div class="video-eyebrow">90-second demo</div>
-    <div class="video-title">Watch VERA evaluate a real therapy</div>
+    <div class="video-eyebrow">90-second explainer</div>
+    <div class="video-title">What VERA does, in one minute</div>
     <div class="video-wrap">
       <!-- Swap the VIDEO_ID below with the actual YouTube ID once the video is uploaded -->
       <iframe
@@ -583,25 +606,18 @@
     </p>
   </div>
 
-  <!-- LIVE RECEIPTS -->
-  <section class="section" id="receipts">
+  <!-- INLINE DEMO -->
+  <section class="section" id="demo">
     <div class="section-inner">
-      <div class="section-eyebrow">Live receipts</div>
-      <div class="section-title">See what VERA actually produces</div>
-      <p class="section-sub">Real outputs from real questions. Not a mockup — these are the deliverables VERA generated for cancer patients evaluating complementary therapies. Click through to read the chat or open the report.</p>
-      <div class="receipts-grid">
-        <a href="demo.html" class="receipt-card">
-          <span class="receipt-eyebrow">Chat transcript</span>
-          <span class="receipt-title">A patient asks about IV vitamin C for pancreatic cancer</span>
-          <span class="receipt-desc">Watch how VERA scopes the question — cancer type, treatment context, what the patient wants to evaluate — before doing the research. Single-question-at-a-time interview, then an artifact.</span>
-          <span class="receipt-arrow">Read the conversation →</span>
-        </a>
-        <a href="samples/sample-mixed-evidence.pdf" class="receipt-card">
-          <span class="receipt-eyebrow">Deliverable PDF</span>
-          <span class="receipt-title">The 6-page evidence report VERA returns</span>
-          <span class="receipt-desc">Page 1 verdict, dashboard, and counts. Pages 2–4 patient-facing findings, gaps, and questions for your oncologist. Pages 5–6 clinical summary for handoff. Built to be printed and brought to your appointment.</span>
-          <span class="receipt-arrow">Open the PDF →</span>
-        </a>
+      <div class="section-eyebrow">See the demo</div>
+      <div class="section-title">Watch a real VERA session, end to end</div>
+      <p class="section-sub">A scripted recreation of an actual session — a Stage IV pancreatic patient asks about high-dose IV vitamin C during FOLFIRINOX. Watch the scoping interview, the live source-by-source research, and the final report card. No buttons to press — it runs itself.</p>
+      <div class="demo-frame-wrap">
+        <iframe src="demo.html" class="demo-iframe" loading="lazy" title="VERA — simulated chat session"></iframe>
+      </div>
+      <div class="demo-pdf-cta">
+        <a href="samples/sample-mixed-evidence.pdf" target="_blank" rel="noopener" class="btn-primary">Open the 6-page PDF →</a>
+        <span class="label">This is the actual report the chat above generates — the deliverable that goes to the patient's oncology appointment.</span>
       </div>
     </div>
   </section>
@@ -610,28 +626,42 @@
   <section class="section" id="how-it-works" style="background: var(--cream);">
     <div class="section-inner">
       <div class="section-eyebrow">How it works</div>
-      <div class="section-title">Three phases, structurally enforced</div>
-      <p class="section-sub">VERA's methodology is enforced by the file system itself, not by hopeful instruction. Each phase writes an artifact to disk; the next phase cannot begin until the artifact exists.</p>
+      <div class="section-title">The methodology, named</div>
+      <p class="section-sub">VERA isn't a chatbot wrapping a search engine. She runs a five-stage research protocol — every stage with named, file-enforced rules and an artifact written to disk. Skip any stage and the next one refuses to start.</p>
       <div class="steps">
         <div class="step">
           <div class="step-num-wrap">1</div>
           <div>
-            <div class="step-text-title">Scoping dialogue</div>
-            <p class="step-text-desc">One question at a time, VERA establishes cancer type and stage, current treatment, what you're trying to evaluate, and your contraindication context. Phase ends when she writes <code>scoping-summary.md</code> — a single artifact that defines the research question.</p>
+            <div class="step-text-title">Scoping — she refuses to answer until she knows enough to answer well</div>
+            <p class="step-text-desc">One question per turn, VERA establishes the four scoping fields: cancer type and stage, current treatment, what you're trying to evaluate, and your contraindication context (medications, allergies, biomarkers, weight). Urgency does not skip scoping. "Just tell me — does it work?" gets the same calm "I need one more thing first." The scoping summary is the contract for everything downstream.</p>
           </div>
         </div>
         <div class="step">
           <div class="step-num-wrap">2</div>
           <div>
-            <div class="step-text-title">Systematic evidence retrieval</div>
-            <p class="step-text-desc">A 6-source fallback chain — Europe PMC → PubMed → ClinicalTrials.gov → Semantic Scholar → Unpaywall → WebSearch. Every source is tagged by a 6-tier evidence hierarchy (T1 RCTs and meta-analyses through T6 anecdote), with conflict-of-interest flags inline. Phase ends with <code>evidence-ledger.md</code>, audited by an adversarial sub-agent before release.</p>
+            <div class="step-text-title">Retrieval — six academic databases plus the same web your patient is reading</div>
+            <p class="step-text-desc">A 6-source fallback chain runs in order — Europe PMC, PubMed, ClinicalTrials.gov, Semantic Scholar, Unpaywall, WebSearch — and a parallel community scan covers Reddit, patient forums, and podcast transcripts so VERA knows what claims you're hearing online, not just what's published. Both sides of the literature are in the evidence ledger before any synthesis begins.</p>
           </div>
         </div>
         <div class="step">
           <div class="step-num-wrap">3</div>
           <div>
-            <div class="step-text-title">Two-audience deliverable</div>
-            <p class="step-text-desc">A 6-page PDF: verdict in the first two sentences, plain-language findings and gaps, specific questions for your oncologist, plus a one-page clinical summary for handoff. Designed to be printed and brought to your next appointment.</p>
+            <div class="step-text-title">Weighting — every source gets a tier, T1 RCT to T6 anecdote</div>
+            <p class="step-text-desc">A 6-tier hierarchy tags every source before it can be cited: T1 systematic reviews and meta-analyses, T2 randomized controlled trials, T3 observational studies, T4 case reports, T5 grey literature, T6 anecdotal. A source without a tier doesn't enter the ledger. Tier drives weight; weight drives the verdict.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num-wrap">4</div>
+          <div>
+            <div class="step-text-title">COI flags and adversarial audit — who paid, who profits, who's selling</div>
+            <p class="step-text-desc">Every Tier 1 and 2 source is checked for industry funding, author conflicts, and structural bias (geographic capture, ideological capture, publication bias). Then a second AI sub-agent runs the audit-brief protocol against the finished ledger — looking for missed searches, weak sources cited as strong, hand-waved gaps. Phase 3 cannot start until the audit clears.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num-wrap">5</div>
+          <div>
+            <div class="step-text-title">Deliverable — two audiences in one PDF</div>
+            <p class="step-text-desc">A 6-page report. Page 1 hits the patient first: verdict in two sentences, a two-question dashboard ("will it help / could it hurt"), and the counts that drove the answer. Pages 2–4 are patient-facing at sixth-grade reading level — findings, gaps, and the specific questions to ask your oncologist. Pages 5–6 are the technical brief for the doctor: tier-tagged evidence, COI flags, hyperlinked references. Print it. Walk in informed.</p>
           </div>
         </div>
       </div>

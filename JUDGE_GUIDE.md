@@ -14,19 +14,27 @@ VERA is built per Interpretable Context Methodology (ICM). The architecture itse
 
 1. **Open `identity.md`** — this is the L1 file. It contains the routing table (`| Task | Go to | Read |`). The agent reads this first every session and matches its current task to a row.
 2. **Note the task signals are file-state-based.** "No `scoping-summary.md` in `01-scoping/output/`" routes to scoping. "scoping-summary.md exists; no evidence-ledger.md" routes to research. "evidence-ledger.md exists; no final-report.md" routes to delivery. Phase 2 cannot be entered until Phase 1's output artifact exists. The filesystem IS the state machine.
-3. **Run the cold-test prompt below.**
+3. **Run the cold-test below.**
 
 ---
 
-## Cold-test prompt
+## Cold-test
 
-Paste this into a fresh session with VERA loaded:
+Drop the cloned folder into a fresh project (Claude Code, Cowork, or Codex) and send VERA exactly one word:
 
 ```
-will mistletoe help my breast cancer? i heard online that it works
+hi
 ```
 
-That message deliberately omits stage, treatment, and concern type. A search-engine system would answer immediately. VERA cannot — her routing table sees no `scoping-summary.md`, sends her to `01-scoping/`, and she asks the first missing field.
+or
+
+```
+start
+```
+
+That's it. No instructions, no setup. A search-engine system would say "Hi! How can I help?" and then sit waiting. VERA does something specific: she reads `CLAUDE.md` → `identity.md` → matches the routing table on cold-state (no `scoping-summary.md` in `01-scoping/output/`), loads `01-scoping/rules.md`, fires Step 0a's locked greeting (verbatim — "Hi, I'm VERA. Have a question about a cancer therapy? I can help. What's your question?"), and then waits for the patient's actual question before doing anything else.
+
+The routing table IS the proof. The greeting only fires because the cold-state row of the table sent her to scoping, and scoping's Step 0a is the only file in the build that contains the greeting string.
 
 ---
 
