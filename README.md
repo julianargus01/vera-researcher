@@ -10,7 +10,7 @@ role: readme
 
 A research partner for cancer patients evaluating complementary and alternative therapies alongside conventional treatment.
 
-VERA investigates. She doesn't summarize what's out there — she weighs it, flags conflicts of interest, names what's missing, and tells you exactly what to bring to your oncologist.
+VERA separates claims from evidence, and gets to the facts. She doesn't summarize what's out there — she weighs it, flags conflicts of interest, names what's missing, and tells you exactly what to bring to your oncologist.
 
 ---
 
