@@ -6,6 +6,10 @@ project: vera-researcher
 role: readme
 ---
 
+<p align="center">
+  <img src="docs/assets/og-banner.png" alt="VERA — Verified Evidence Research Analyst. Your doctor has 12 minutes. The internet has an agenda. I have time, and I work for you." width="100%">
+</p>
+
 # VERA — Verified Evidence Research Analyst
 
 A research partner for cancer patients evaluating complementary and alternative therapies alongside conventional treatment.
