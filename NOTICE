@@ -4,23 +4,6 @@ Copyright (c) 2026 Greg Faysash
 VERA is licensed under CC BY-NC 4.0 (see LICENSE).
 
 ────────────────────────────────────────────────────────────────────────
-Third-party attribution
-────────────────────────────────────────────────────────────────────────
-
-VERA's build process used the **pre-flight coach** crosscheck framework
-during development:
-
-    pre-flight coach
-    Copyright (c) 2026 Basiliso Rosario (BuiltByBas)
-    https://github.com/BuiltByBas/pre-flight-coach
-    Licensed under CC BY-NC 4.0
-
-The pre-flight coach tool is not bundled in this repository. It was used
-as a development-time methodology aid; no pre-flight code or content
-ships with VERA. Attribution is provided here in recognition of the
-methodology's influence on VERA's build process.
-
-────────────────────────────────────────────────────────────────────────
 Fonts
 ────────────────────────────────────────────────────────────────────────
 
